@@ -1,7 +1,7 @@
 // app.js
 // will hold state - the search results and if the list should be displayed
 //import { Grid } from 'react-bootstrap';
-let { Grid, Row, Col, Thumbnail, Button,  } = ReactBootstrap;
+let { Grid, Row, Col, Thumbnail, Button, Table } = ReactBootstrap;//"react's require statement. looks to find a match in ReactBootstrap"
 
 class App extends React.Component {
 
@@ -14,54 +14,47 @@ class App extends React.Component {
   }
 
   handleClick () {
-    
+
   }
 
   // this will make a post request to the API to save a meal when the user clicks on the photo
   saveToDatabase () {
-    
-  }
-  
-  render () {
 
+  }
+
+  render () {
     return (
       <div>
-        <h2>Find-A-Meal</h2>
-        <Grid>
-          <Row>
-          <Col xs={6} md={4}>
-            <Thumbnail src="http://activeazur.wpengine.netdna-cdn.com/wp-content/uploads/2013/09/mandelieu-kitesurfing.jpg" alt="242x200">
-              <h3>Thumbnail label</h3>
-              <p>Description</p>
-              <p>
-                <Button bsStyle="primary">Button</Button>&nbsp;
-                <Button bsStyle="default">Button</Button>
-              </p>
-            </Thumbnail>
-          </Col>
-          <Col xs={6} md={4}>
-            <Thumbnail src="http://activeazur.wpengine.netdna-cdn.com/wp-content/uploads/2013/09/mandelieu-kitesurfing.jpg" alt="242x200">
-              <h3>Thumbnail label</h3>
-              <p>Description</p>
-              <p>
-                <Button bsStyle="primary">Button</Button>&nbsp;
-                <Button bsStyle="default">Button</Button>
-              </p>
-            </Thumbnail>
-          </Col>
-          <Col xs={6} md={4}>
-            <Thumbnail src="http://activeazur.wpengine.netdna-cdn.com/wp-content/uploads/2013/09/mandelieu-kitesurfing.jpg" alt="242x200">
-              <h3>Thumbnail label</h3>
-              <p>Description</p>
-              <p>
-                <Button bsStyle="primary">Button</Button>&nbsp;
-                <Button bsStyle="default">Button</Button>
-              </p>
-            </Thumbnail>
-          </Col>
-          </Row>
-        </Grid>
-      </div>
-    );
+    <Table striped bordered condensed hover>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td colSpan="2">Larry the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </Table>
+  </div>
+  );
   }
 }

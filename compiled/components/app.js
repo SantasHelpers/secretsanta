@@ -16,7 +16,8 @@ var _ReactBootstrap = ReactBootstrap,
     Row = _ReactBootstrap.Row,
     Col = _ReactBootstrap.Col,
     Thumbnail = _ReactBootstrap.Thumbnail,
-    Button = _ReactBootstrap.Button;
+    Button = _ReactBootstrap.Button,
+    Table = _ReactBootstrap.Table; //"react's require statement. looks to find a match in ReactBootstrap"
 
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
@@ -43,118 +44,108 @@ var App = function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-
       return React.createElement(
         "div",
         null,
         React.createElement(
-          "h2",
-          null,
-          "Find-A-Meal"
-        ),
-        React.createElement(
-          Grid,
-          null,
+          Table,
+          { striped: true, bordered: true, condensed: true, hover: true },
           React.createElement(
-            Row,
+            "thead",
             null,
             React.createElement(
-              Col,
-              { xs: 6, md: 4 },
+              "tr",
+              null,
               React.createElement(
-                Thumbnail,
-                { src: "http://activeazur.wpengine.netdna-cdn.com/wp-content/uploads/2013/09/mandelieu-kitesurfing.jpg", alt: "242x200" },
-                React.createElement(
-                  "h3",
-                  null,
-                  "Thumbnail label"
-                ),
-                React.createElement(
-                  "p",
-                  null,
-                  "Description"
-                ),
-                React.createElement(
-                  "p",
-                  null,
-                  React.createElement(
-                    Button,
-                    { bsStyle: "primary" },
-                    "Button"
-                  ),
-                  "\xA0",
-                  React.createElement(
-                    Button,
-                    { bsStyle: "default" },
-                    "Button"
-                  )
-                )
+                "th",
+                null,
+                "#"
+              ),
+              React.createElement(
+                "th",
+                null,
+                "First Name"
+              ),
+              React.createElement(
+                "th",
+                null,
+                "Last Name"
+              ),
+              React.createElement(
+                "th",
+                null,
+                "Username"
+              )
+            )
+          ),
+          React.createElement(
+            "tbody",
+            null,
+            React.createElement(
+              "tr",
+              null,
+              React.createElement(
+                "td",
+                null,
+                "1"
+              ),
+              React.createElement(
+                "td",
+                null,
+                "Mark"
+              ),
+              React.createElement(
+                "td",
+                null,
+                "Otto"
+              ),
+              React.createElement(
+                "td",
+                null,
+                "@mdo"
               )
             ),
             React.createElement(
-              Col,
-              { xs: 6, md: 4 },
+              "tr",
+              null,
               React.createElement(
-                Thumbnail,
-                { src: "http://activeazur.wpengine.netdna-cdn.com/wp-content/uploads/2013/09/mandelieu-kitesurfing.jpg", alt: "242x200" },
-                React.createElement(
-                  "h3",
-                  null,
-                  "Thumbnail label"
-                ),
-                React.createElement(
-                  "p",
-                  null,
-                  "Description"
-                ),
-                React.createElement(
-                  "p",
-                  null,
-                  React.createElement(
-                    Button,
-                    { bsStyle: "primary" },
-                    "Button"
-                  ),
-                  "\xA0",
-                  React.createElement(
-                    Button,
-                    { bsStyle: "default" },
-                    "Button"
-                  )
-                )
+                "td",
+                null,
+                "2"
+              ),
+              React.createElement(
+                "td",
+                null,
+                "Jacob"
+              ),
+              React.createElement(
+                "td",
+                null,
+                "Thornton"
+              ),
+              React.createElement(
+                "td",
+                null,
+                "@fat"
               )
             ),
             React.createElement(
-              Col,
-              { xs: 6, md: 4 },
+              "tr",
+              null,
               React.createElement(
-                Thumbnail,
-                { src: "http://activeazur.wpengine.netdna-cdn.com/wp-content/uploads/2013/09/mandelieu-kitesurfing.jpg", alt: "242x200" },
-                React.createElement(
-                  "h3",
-                  null,
-                  "Thumbnail label"
-                ),
-                React.createElement(
-                  "p",
-                  null,
-                  "Description"
-                ),
-                React.createElement(
-                  "p",
-                  null,
-                  React.createElement(
-                    Button,
-                    { bsStyle: "primary" },
-                    "Button"
-                  ),
-                  "\xA0",
-                  React.createElement(
-                    Button,
-                    { bsStyle: "default" },
-                    "Button"
-                  )
-                )
+                "td",
+                null,
+                "3"
+              ),
+              React.createElement(
+                "td",
+                { colSpan: "2" },
+                "Larry the Bird"
+              ),
+              React.createElement(
+                "td",
+                null,
+                "@twitter"
               )
             )
           )
@@ -165,4 +156,4 @@ var App = function (_React$Component) {
 
   return App;
 }(React.Component);
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL2NsaWVudC9jb21wb25lbnRzL2FwcC5qc3giXSwibmFtZXMiOlsiUmVhY3RCb290c3RyYXAiLCJHcmlkIiwiUm93IiwiQ29sIiwiVGh1bWJuYWlsIiwiQnV0dG9uIiwiQXBwIiwicHJvcHMiLCJzdGF0ZSIsImhhbmRsZUNsaWNrIiwiYmluZCIsIlJlYWN0IiwiQ29tcG9uZW50Il0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7O0FBQUE7QUFDQTtBQUNBO3NCQUM4Q0EsYztJQUF4Q0MsSSxtQkFBQUEsSTtJQUFNQyxHLG1CQUFBQSxHO0lBQUtDLEcsbUJBQUFBLEc7SUFBS0MsUyxtQkFBQUEsUztJQUFXQyxNLG1CQUFBQSxNOztJQUUzQkMsRzs7O0FBRUosZUFBYUMsS0FBYixFQUFvQjtBQUFBOztBQUFBLDBHQUNYQSxLQURXOztBQUVsQixVQUFLQyxLQUFMLEdBQWEsRUFBYjtBQUdBLFVBQUtDLFdBQUwsR0FBbUIsTUFBS0EsV0FBTCxDQUFpQkMsSUFBakIsT0FBbkI7QUFMa0I7QUFNbkI7Ozs7a0NBRWMsQ0FFZDs7QUFFRDs7OztxQ0FDa0IsQ0FFakI7Ozs2QkFFUzs7QUFFUixhQUNFO0FBQUE7QUFBQTtBQUNFO0FBQUE7QUFBQTtBQUFBO0FBQUEsU0FERjtBQUVFO0FBQUMsY0FBRDtBQUFBO0FBQ0U7QUFBQyxlQUFEO0FBQUE7QUFDQTtBQUFDLGlCQUFEO0FBQUEsZ0JBQUssSUFBSSxDQUFULEVBQVksSUFBSSxDQUFoQjtBQUNFO0FBQUMseUJBQUQ7QUFBQSxrQkFBVyxLQUFJLGdHQUFmLEVBQWdILEtBQUksU0FBcEg7QUFDRTtBQUFBO0FBQUE7QUFBQTtBQUFBLGlCQURGO0FBRUU7QUFBQTtBQUFBO0FBQUE7QUFBQSxpQkFGRjtBQUdFO0FBQUE7QUFBQTtBQUNFO0FBQUMsMEJBQUQ7QUFBQSxzQkFBUSxTQUFRLFNBQWhCO0FBQUE7QUFBQSxtQkFERjtBQUFBO0FBRUU7QUFBQywwQkFBRDtBQUFBLHNCQUFRLFNBQVEsU0FBaEI7QUFBQTtBQUFBO0FBRkY7QUFIRjtBQURGLGFBREE7QUFXQTtBQUFDLGlCQUFEO0FBQUEsZ0JBQUssSUFBSSxDQUFULEVBQVksSUFBSSxDQUFoQjtBQUNFO0FBQUMseUJBQUQ7QUFBQSxrQkFBVyxLQUFJLGdHQUFmLEVBQWdILEtBQUksU0FBcEg7QUFDRTtBQUFBO0FBQUE7QUFBQTtBQUFBLGlCQURGO0FBRUU7QUFBQTtBQUFBO0FBQUE7QUFBQSxpQkFGRjtBQUdFO0FBQUE7QUFBQTtBQUNFO0FBQUMsMEJBQUQ7QUFBQSxzQkFBUSxTQUFRLFNBQWhCO0FBQUE7QUFBQSxtQkFERjtBQUFBO0FBRUU7QUFBQywwQkFBRDtBQUFBLHNCQUFRLFNBQVEsU0FBaEI7QUFBQTtBQUFBO0FBRkY7QUFIRjtBQURGLGFBWEE7QUFxQkE7QUFBQyxpQkFBRDtBQUFBLGdCQUFLLElBQUksQ0FBVCxFQUFZLElBQUksQ0FBaEI7QUFDRTtBQUFDLHlCQUFEO0FBQUEsa0JBQVcsS0FBSSxnR0FBZixFQUFnSCxLQUFJLFNBQXBIO0FBQ0U7QUFBQTtBQUFBO0FBQUE7QUFBQSxpQkFERjtBQUVFO0FBQUE7QUFBQTtBQUFBO0FBQUEsaUJBRkY7QUFHRTtBQUFBO0FBQUE7QUFDRTtBQUFDLDBCQUFEO0FBQUEsc0JBQVEsU0FBUSxTQUFoQjtBQUFBO0FBQUEsbUJBREY7QUFBQTtBQUVFO0FBQUMsMEJBQUQ7QUFBQSxzQkFBUSxTQUFRLFNBQWhCO0FBQUE7QUFBQTtBQUZGO0FBSEY7QUFERjtBQXJCQTtBQURGO0FBRkYsT0FERjtBQXVDRDs7OztFQTVEZUMsTUFBTUMsUyIsImZpbGUiOiJhcHAuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvLyBhcHAuanNcbi8vIHdpbGwgaG9sZCBzdGF0ZSAtIHRoZSBzZWFyY2ggcmVzdWx0cyBhbmQgaWYgdGhlIGxpc3Qgc2hvdWxkIGJlIGRpc3BsYXllZFxuLy9pbXBvcnQgeyBHcmlkIH0gZnJvbSAncmVhY3QtYm9vdHN0cmFwJztcbmxldCB7IEdyaWQsIFJvdywgQ29sLCBUaHVtYm5haWwsIEJ1dHRvbiwgIH0gPSBSZWFjdEJvb3RzdHJhcDtcblxuY2xhc3MgQXBwIGV4dGVuZHMgUmVhY3QuQ29tcG9uZW50IHtcblxuICBjb25zdHJ1Y3RvciAocHJvcHMpIHtcbiAgICBzdXBlciAocHJvcHMpO1xuICAgIHRoaXMuc3RhdGUgPSB7XG5cbiAgICB9O1xuICAgIHRoaXMuaGFuZGxlQ2xpY2sgPSB0aGlzLmhhbmRsZUNsaWNrLmJpbmQodGhpcyk7XG4gIH1cblxuICBoYW5kbGVDbGljayAoKSB7XG4gICAgXG4gIH1cblxuICAvLyB0aGlzIHdpbGwgbWFrZSBhIHBvc3QgcmVxdWVzdCB0byB0aGUgQVBJIHRvIHNhdmUgYSBtZWFsIHdoZW4gdGhlIHVzZXIgY2xpY2tzIG9uIHRoZSBwaG90b1xuICBzYXZlVG9EYXRhYmFzZSAoKSB7XG4gICAgXG4gIH1cbiAgXG4gIHJlbmRlciAoKSB7XG5cbiAgICByZXR1cm4gKFxuICAgICAgPGRpdj5cbiAgICAgICAgPGgyPkZpbmQtQS1NZWFsPC9oMj5cbiAgICAgICAgPEdyaWQ+XG4gICAgICAgICAgPFJvdz5cbiAgICAgICAgICA8Q29sIHhzPXs2fSBtZD17NH0+XG4gICAgICAgICAgICA8VGh1bWJuYWlsIHNyYz1cImh0dHA6Ly9hY3RpdmVhenVyLndwZW5naW5lLm5ldGRuYS1jZG4uY29tL3dwLWNvbnRlbnQvdXBsb2Fkcy8yMDEzLzA5L21hbmRlbGlldS1raXRlc3VyZmluZy5qcGdcIiBhbHQ9XCIyNDJ4MjAwXCI+XG4gICAgICAgICAgICAgIDxoMz5UaHVtYm5haWwgbGFiZWw8L2gzPlxuICAgICAgICAgICAgICA8cD5EZXNjcmlwdGlvbjwvcD5cbiAgICAgICAgICAgICAgPHA+XG4gICAgICAgICAgICAgICAgPEJ1dHRvbiBic1N0eWxlPVwicHJpbWFyeVwiPkJ1dHRvbjwvQnV0dG9uPiZuYnNwO1xuICAgICAgICAgICAgICAgIDxCdXR0b24gYnNTdHlsZT1cImRlZmF1bHRcIj5CdXR0b248L0J1dHRvbj5cbiAgICAgICAgICAgICAgPC9wPlxuICAgICAgICAgICAgPC9UaHVtYm5haWw+XG4gICAgICAgICAgPC9Db2w+XG4gICAgICAgICAgPENvbCB4cz17Nn0gbWQ9ezR9PlxuICAgICAgICAgICAgPFRodW1ibmFpbCBzcmM9XCJodHRwOi8vYWN0aXZlYXp1ci53cGVuZ2luZS5uZXRkbmEtY2RuLmNvbS93cC1jb250ZW50L3VwbG9hZHMvMjAxMy8wOS9tYW5kZWxpZXUta2l0ZXN1cmZpbmcuanBnXCIgYWx0PVwiMjQyeDIwMFwiPlxuICAgICAgICAgICAgICA8aDM+VGh1bWJuYWlsIGxhYmVsPC9oMz5cbiAgICAgICAgICAgICAgPHA+RGVzY3JpcHRpb248L3A+XG4gICAgICAgICAgICAgIDxwPlxuICAgICAgICAgICAgICAgIDxCdXR0b24gYnNTdHlsZT1cInByaW1hcnlcIj5CdXR0b248L0J1dHRvbj4mbmJzcDtcbiAgICAgICAgICAgICAgICA8QnV0dG9uIGJzU3R5bGU9XCJkZWZhdWx0XCI+QnV0dG9uPC9CdXR0b24+XG4gICAgICAgICAgICAgIDwvcD5cbiAgICAgICAgICAgIDwvVGh1bWJuYWlsPlxuICAgICAgICAgIDwvQ29sPlxuICAgICAgICAgIDxDb2wgeHM9ezZ9IG1kPXs0fT5cbiAgICAgICAgICAgIDxUaHVtYm5haWwgc3JjPVwiaHR0cDovL2FjdGl2ZWF6dXIud3BlbmdpbmUubmV0ZG5hLWNkbi5jb20vd3AtY29udGVudC91cGxvYWRzLzIwMTMvMDkvbWFuZGVsaWV1LWtpdGVzdXJmaW5nLmpwZ1wiIGFsdD1cIjI0MngyMDBcIj5cbiAgICAgICAgICAgICAgPGgzPlRodW1ibmFpbCBsYWJlbDwvaDM+XG4gICAgICAgICAgICAgIDxwPkRlc2NyaXB0aW9uPC9wPlxuICAgICAgICAgICAgICA8cD5cbiAgICAgICAgICAgICAgICA8QnV0dG9uIGJzU3R5bGU9XCJwcmltYXJ5XCI+QnV0dG9uPC9CdXR0b24+Jm5ic3A7XG4gICAgICAgICAgICAgICAgPEJ1dHRvbiBic1N0eWxlPVwiZGVmYXVsdFwiPkJ1dHRvbjwvQnV0dG9uPlxuICAgICAgICAgICAgICA8L3A+XG4gICAgICAgICAgICA8L1RodW1ibmFpbD5cbiAgICAgICAgICA8L0NvbD5cbiAgICAgICAgICA8L1Jvdz5cbiAgICAgICAgPC9HcmlkPlxuICAgICAgPC9kaXY+XG4gICAgKTtcbiAgfVxufSJdfQ==
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL2NsaWVudC9jb21wb25lbnRzL2FwcC5qc3giXSwibmFtZXMiOlsiUmVhY3RCb290c3RyYXAiLCJHcmlkIiwiUm93IiwiQ29sIiwiVGh1bWJuYWlsIiwiQnV0dG9uIiwiVGFibGUiLCJBcHAiLCJwcm9wcyIsInN0YXRlIiwiaGFuZGxlQ2xpY2siLCJiaW5kIiwiUmVhY3QiLCJDb21wb25lbnQiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7QUFBQTtBQUNBO0FBQ0E7c0JBQ21EQSxjO0lBQTdDQyxJLG1CQUFBQSxJO0lBQU1DLEcsbUJBQUFBLEc7SUFBS0MsRyxtQkFBQUEsRztJQUFLQyxTLG1CQUFBQSxTO0lBQVdDLE0sbUJBQUFBLE07SUFBUUMsSyxtQkFBQUEsSyxFQUF5Qjs7SUFFNURDLEc7OztBQUVKLGVBQWFDLEtBQWIsRUFBb0I7QUFBQTs7QUFBQSwwR0FDWEEsS0FEVzs7QUFFbEIsVUFBS0MsS0FBTCxHQUFhLEVBQWI7QUFHQSxVQUFLQyxXQUFMLEdBQW1CLE1BQUtBLFdBQUwsQ0FBaUJDLElBQWpCLE9BQW5CO0FBTGtCO0FBTW5COzs7O2tDQUVjLENBRWQ7O0FBRUQ7Ozs7cUNBQ2tCLENBRWpCOzs7NkJBRVM7QUFDUixhQUNFO0FBQUE7QUFBQTtBQUNGO0FBQUMsZUFBRDtBQUFBLFlBQU8sYUFBUCxFQUFlLGNBQWYsRUFBd0IsZUFBeEIsRUFBa0MsV0FBbEM7QUFDQTtBQUFBO0FBQUE7QUFDRTtBQUFBO0FBQUE7QUFDRTtBQUFBO0FBQUE7QUFBQTtBQUFBLGVBREY7QUFFRTtBQUFBO0FBQUE7QUFBQTtBQUFBLGVBRkY7QUFHRTtBQUFBO0FBQUE7QUFBQTtBQUFBLGVBSEY7QUFJRTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBSkY7QUFERixXQURBO0FBU0E7QUFBQTtBQUFBO0FBQ0U7QUFBQTtBQUFBO0FBQ0U7QUFBQTtBQUFBO0FBQUE7QUFBQSxlQURGO0FBRUU7QUFBQTtBQUFBO0FBQUE7QUFBQSxlQUZGO0FBR0U7QUFBQTtBQUFBO0FBQUE7QUFBQSxlQUhGO0FBSUU7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUpGLGFBREY7QUFPRTtBQUFBO0FBQUE7QUFDRTtBQUFBO0FBQUE7QUFBQTtBQUFBLGVBREY7QUFFRTtBQUFBO0FBQUE7QUFBQTtBQUFBLGVBRkY7QUFHRTtBQUFBO0FBQUE7QUFBQTtBQUFBLGVBSEY7QUFJRTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBSkYsYUFQRjtBQWFFO0FBQUE7QUFBQTtBQUNFO0FBQUE7QUFBQTtBQUFBO0FBQUEsZUFERjtBQUVFO0FBQUE7QUFBQSxrQkFBSSxTQUFRLEdBQVo7QUFBQTtBQUFBLGVBRkY7QUFHRTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBSEY7QUFiRjtBQVRBO0FBREUsT0FERjtBQWlDRDs7OztFQXJEZUMsTUFBTUMsUyIsImZpbGUiOiJhcHAuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvLyBhcHAuanNcbi8vIHdpbGwgaG9sZCBzdGF0ZSAtIHRoZSBzZWFyY2ggcmVzdWx0cyBhbmQgaWYgdGhlIGxpc3Qgc2hvdWxkIGJlIGRpc3BsYXllZFxuLy9pbXBvcnQgeyBHcmlkIH0gZnJvbSAncmVhY3QtYm9vdHN0cmFwJztcbmxldCB7IEdyaWQsIFJvdywgQ29sLCBUaHVtYm5haWwsIEJ1dHRvbiwgVGFibGUgfSA9IFJlYWN0Qm9vdHN0cmFwOy8vXCJyZWFjdCdzIHJlcXVpcmUgc3RhdGVtZW50LiBsb29rcyB0byBmaW5kIGEgbWF0Y2ggaW4gUmVhY3RCb290c3RyYXBcIlxuXG5jbGFzcyBBcHAgZXh0ZW5kcyBSZWFjdC5Db21wb25lbnQge1xuXG4gIGNvbnN0cnVjdG9yIChwcm9wcykge1xuICAgIHN1cGVyIChwcm9wcyk7XG4gICAgdGhpcy5zdGF0ZSA9IHtcblxuICAgIH07XG4gICAgdGhpcy5oYW5kbGVDbGljayA9IHRoaXMuaGFuZGxlQ2xpY2suYmluZCh0aGlzKTtcbiAgfVxuXG4gIGhhbmRsZUNsaWNrICgpIHtcblxuICB9XG5cbiAgLy8gdGhpcyB3aWxsIG1ha2UgYSBwb3N0IHJlcXVlc3QgdG8gdGhlIEFQSSB0byBzYXZlIGEgbWVhbCB3aGVuIHRoZSB1c2VyIGNsaWNrcyBvbiB0aGUgcGhvdG9cbiAgc2F2ZVRvRGF0YWJhc2UgKCkge1xuXG4gIH1cblxuICByZW5kZXIgKCkge1xuICAgIHJldHVybiAoXG4gICAgICA8ZGl2PlxuICAgIDxUYWJsZSBzdHJpcGVkIGJvcmRlcmVkIGNvbmRlbnNlZCBob3Zlcj5cbiAgICA8dGhlYWQ+XG4gICAgICA8dHI+XG4gICAgICAgIDx0aD4jPC90aD5cbiAgICAgICAgPHRoPkZpcnN0IE5hbWU8L3RoPlxuICAgICAgICA8dGg+TGFzdCBOYW1lPC90aD5cbiAgICAgICAgPHRoPlVzZXJuYW1lPC90aD5cbiAgICAgIDwvdHI+XG4gICAgPC90aGVhZD5cbiAgICA8dGJvZHk+XG4gICAgICA8dHI+XG4gICAgICAgIDx0ZD4xPC90ZD5cbiAgICAgICAgPHRkPk1hcms8L3RkPlxuICAgICAgICA8dGQ+T3R0bzwvdGQ+XG4gICAgICAgIDx0ZD5AbWRvPC90ZD5cbiAgICAgIDwvdHI+XG4gICAgICA8dHI+XG4gICAgICAgIDx0ZD4yPC90ZD5cbiAgICAgICAgPHRkPkphY29iPC90ZD5cbiAgICAgICAgPHRkPlRob3JudG9uPC90ZD5cbiAgICAgICAgPHRkPkBmYXQ8L3RkPlxuICAgICAgPC90cj5cbiAgICAgIDx0cj5cbiAgICAgICAgPHRkPjM8L3RkPlxuICAgICAgICA8dGQgY29sU3Bhbj1cIjJcIj5MYXJyeSB0aGUgQmlyZDwvdGQ+XG4gICAgICAgIDx0ZD5AdHdpdHRlcjwvdGQ+XG4gICAgICA8L3RyPlxuICAgIDwvdGJvZHk+XG4gIDwvVGFibGU+XG4gIDwvZGl2PlxuICApO1xuICB9XG59Il19
