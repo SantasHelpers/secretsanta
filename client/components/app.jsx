@@ -1,12 +1,13 @@
 // app.js
 // will hold state - the search results and if the list should be displayed
-//import { Grid } from 'react-bootstrap';
-let { Grid, Row, Col, Thumbnail, Button,  } = ReactBootstrap;
+import { Grid, Row, Col, Thumbnail, Button  }  from 'react-bootstrap';
+import React from 'react';
 
 class App extends React.Component {
 
   constructor (props) {
     super (props);
+
     this.state = {
 
     };
@@ -65,3 +66,5 @@ class App extends React.Component {
     );
   }
 }
+
+export default App;
