@@ -1,4 +1,4 @@
--- DROP DATABASE santasHelpers;
+DROP DATABASE santasHelpers;
 CREATE DATABASE santasHelpers;
 
 USE santasHelpers;
