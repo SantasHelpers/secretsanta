@@ -8,12 +8,6 @@ var port = port = process.env.PORT || 8000;
 var app = express();
 
 
-var checkAttributes = function(array) {
-  console.log(array.length);
-  array.forEach(function(val) {
-    console.log(val.ItemAttributes);
-  })
-};
 
 
 app.use('/', express.static(path.join(__dirname + '/../client')));
@@ -21,22 +15,30 @@ app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 
 app.listen(port);
+////////////////////////
+// Amazon API call
 
+var logAttributes = function(array) {
+  console.log(array.length);
+  array.forEach(function(val) {
+    // console.log(val);
+    console.log(val.ItemAttributes.Title);
+    if (val.ItemAttributes.ListPrice) {
+      console.log(val.ItemAttributes.ListPrice.FormattedPrice);
+    }
+    console.log(val.MediumImage.URL);
+  })
+};
 prodAdv = aws.createProdAdvClient(keys.keyId, keys.secretKey, keys.aId);
-var keyword = 'Cards against humanity';
+var keyword = 'Cards against Humanity';
 var returnedArray = [];
 
-prodAdv.call("ItemSearch", { SearchIndex: 'All', Keywords: keyword }, function(err, result) {
-  // console.log(JSON.stringify(result.Items.Item));
+prodAdv.call("ItemSearch", { SearchIndex: 'All', Keywords: keyword, ResponseGroup: 'Medium, Variations' }, function(err, result) {
   returnedArray = result.Items.Item;
-  // console.log(Array.isArray(returnedArray));
-  checkAttributes(returnedArray);
+  // console.log(returnedArray[1]);
+  logAttributes(returnedArray);
 });
-console.log('returnedArray', returnedArray);
 
-// checkAttributes(returnedArray);
-
-
-
+//////////////////////////////
 console.log('listening on ', port);
 module.exports = app;
