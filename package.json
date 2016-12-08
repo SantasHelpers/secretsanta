@@ -1,0 +1,19 @@
+{
+  "name": "secretsanta",
+  "version": "1.0.0",
+  "description": "Secret Santa",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SantasHelpers/secretsanta.git"
+  },
+  "author": "Santa's Helpers",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/SantasHelpers/secretsanta/issues"
+  },
+  "homepage": "https://github.com/SantasHelpers/secretsanta#readme"
+}
