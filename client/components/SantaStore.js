@@ -4,9 +4,6 @@ import { autorun, extendObservable } from 'mobx';
 
 class SantaStore {
 
- // @observable users;
- // @observable groups;
-
   constructor () {
     extendObservable(this, {
       users: ['Phil', 'Tyler', 'Joos', 'Chan'],
