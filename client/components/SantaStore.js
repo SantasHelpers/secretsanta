@@ -1,16 +1,22 @@
 // MOBX store
 // SantaStore.js
-import { autorun, observable } from 'mobx';
+import { autorun, extendObservable } from 'mobx';
 
 class SantaStore {
 
-  @observable users;
-  //@observable groups;
+ // @observable users;
+ // @observable groups;
 
   constructor () {
-    this.users = ['Phil', 'Tyler', 'Joos', 'Chan'];
-    this.groups =  ['HR50', 'Family', 'Friends'];
+    extendObservable(this, {
+      users: ['Phil', 'Tyler', 'Joos', 'Chan'],
+      groups: ['HR50', 'Family', 'Friends']
+    })
+    // this.users = ;
+    // this.groups =  ;
   }
+ // MOBX mutates state directly in the store
+ // good resource  http://www.robinwieruch.de/mobx-react/
 
 }
 
