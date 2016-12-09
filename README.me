@@ -1,1 +1,20 @@
-init
+DOCS
+///////////////////
+////AMAZON API/////
+///////////////////
+Search for Amazon Product Advertising API, it went through 2 name changes and docs are weird.
+use aws because doing it by hand requires too much work.
+
+Amazon Data = result
+result.Items.Item = array of items
+
+Item[n].ItemAttributes.ListPrice <- may or may not exist because of items with variations, we chose to ignore items without a ListPrice.
+
+Item[n].ItemAttributes.Title = name of Item
+Item[n].ItemAttributes.ListPrice.FormattedPrice = price with $ sign
+Item[n].DetailPageURL = link to amazon page.
+
+Item[n].SmallImage.URL
+Item[n].MediumImage.URL
+Item[n].LargeImage.URL = Images with respective size.
+
