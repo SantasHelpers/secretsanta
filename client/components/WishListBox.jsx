@@ -21,7 +21,7 @@ class WishListBox extends React.Component {
 
   render () {
     return (
-      <div className='WishListBox'>
+      <div id='WishListBox'>
         <Button block onClick={this.addItem}> Add An Item To Wishlist </Button>
         <ListGroup>
           {this.props.wishListItems.map( (item, index) =>

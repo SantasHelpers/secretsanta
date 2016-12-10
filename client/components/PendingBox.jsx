@@ -15,8 +15,8 @@ class PendingBox extends React.Component {
 
   render () {
     return (
-      <div className='PendingBox'>
-        <Button block>I CANT THINK OF WHAT TO WRITE HERE</Button>
+      <div id='PendingBox'>
+        <Button block>PENDING BOX</Button>
         <ListGroup>
           {this.props.PendingBoxItems.map( (item, index) =>
             <PendingItem item={item} key={index}/>

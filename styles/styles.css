@@ -1,16 +1,26 @@
 /* styles.css */
-.GroupBox {
-  width: 200px;
+#mainApp {
+  position: static;
 }
 
-.WishListBox {
-  width: 700px;
-  -webkit-animation-duration: 4s;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-direction: right;
-  -webkit-animation-timing-function: linear;
+#GroupBox { /*Groupbox will be fixed to top left corner*/
+  position: fixed;
+  width: 20%;
+  top: 50px;
 }
 
-.WishListBox:hover {
-  -webkit-animation-play-state: paused;
+#pendingAndWishList {
+  position: relative;
+  left: 21%;
+  width: 75%;
+}
+
+#PendingBox { /*Relative to the groupbox*/
+  position: relative;
+  top: 0;
+}
+
+#WishListBox { /*Relative to the groupbox*/
+  position: relative;
+  bottom: 0;
 }
