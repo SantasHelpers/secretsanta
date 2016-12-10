@@ -36,7 +36,6 @@ var App = observer(class App extends React.Component {
         </div>
       );
     };
-
 })
 
 
