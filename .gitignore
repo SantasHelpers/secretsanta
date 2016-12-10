@@ -2,3 +2,6 @@ node_modules/
 compiled/
 server/config.js
 dist/
+client/bundle.js
+temp
+
