@@ -2,8 +2,9 @@ var express = require('express');
 var path = require('path');
 var bodyparser = require('body-parser');
 var aws = require('aws-lib');
-var keys = require('./config');
+var keys = require('../config/config');
 var port = port = process.env.PORT || 8000;
+var routes = require('./config/routes/routes');
 
 var app = express();
 
@@ -18,17 +19,29 @@ app.listen(port);
 ////////////////////////
 // Amazon API call
 
-var logAttributes = function(array) {
+var returnFormatted = function(array) {
+  var results = [];
   console.log(array.length);
   array.forEach(function(val) {
     if (val.ItemAttributes.ListPrice) {
-      // console.log(val);
-      console.log(val.ItemAttributes.Title);
-      console.log(val.ItemAttributes.ListPrice.FormattedPrice);
-      console.log(val.MediumImage.URL);
-      console.log(val.DetailPageURL);
+      var item = {
+        name: val.ItemAttributes.Title,
+        price: val.ItemAttributes.ListPrice.Amount / 100,
+        imageURL: val.MediumImage.URL,
+        URL: val.DetailPageURL
+      };
+      if (item.price <= 10) {
+        item.category = 'Elf';
+      } else if (item.price <= 25) {
+        item.category = 'Raindeer';
+      } else {
+        item.category = 'Santa';
+      }
+      // console.log(item);
+      results.push(item);
     }
   })
+  return results;
 };
 
 prodAdv = aws.createProdAdvClient(keys.keyId, keys.secretKey, keys.aId);
@@ -38,23 +51,13 @@ var returnedArray = [];
 prodAdv.call("ItemSearch", { SearchIndex: 'All', Keywords: keyword, ResponseGroup: 'Medium' }, function(err, result) {
   returnedArray = result.Items.Item;
   // console.log(returnedArray[1]);
-  logAttributes(returnedArray);
+  returnFormatted(returnedArray);
 });
 
 
 //////////////////////////////
 //////////////////////////////
 console.log('listening on ', port);
-///////////////////////////// ENDPOINTS
-// app.get('/api/user/wishList');  // FEED USER GET ITEMLIST
-// app.get('/api/user/party',);    // FEED USER GET PARTYLIST
-// app.get('/api/user/pending');   // FEED USER GET PENDING LIST
-// app.get('/api/party',)          // FEED USER PARTY GET USERLIST, INFO, TARGET
-// app.get('/api/user',);          // GET ALL USERS TO SELECT WHO TO ADD TO GROUP
-// app.post('/api/item/claim',);   // FEED ITEM AND USER TO CHANGE STATUS CLAIMED
-// app.post('/api/item/add',);     // FEED ITEM AND USER TO SAVE TO DB
-// app.post('/api/user/add',);     // FEED USER TO ADD TO USERLIST
-
 
 
 
