@@ -1,1 +1,16 @@
 /* styles.css */
+.GroupBox {
+  width: 200px;
+}
+
+.WishListBox {
+  width: 700px;
+  -webkit-animation-duration: 4s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: right;
+  -webkit-animation-timing-function: linear;
+}
+
+.WishListBox:hover {
+  -webkit-animation-play-state: paused;
+}
