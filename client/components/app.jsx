@@ -7,10 +7,6 @@ import GroupBox from './GroupBox.jsx';
 import WishListBox from './WishListBox.jsx';
 import PendingBox from './PendingBox.jsx';
 
-
-//import { Grid } from 'react-bootstrap';
-//"react's require statement. looks to find a match in ReactBootstrap"
-
 class App extends React.Component {
 
   constructor (props) {
@@ -25,11 +21,7 @@ class App extends React.Component {
   handleClick () {
     console.log('nice you clicked the page')
   }
-
-  // this will make a post request to the API to save a meal when the user clicks on the photo
-  saveToDatabase () {
-
-  }
+}
 
    render () {
       return (
