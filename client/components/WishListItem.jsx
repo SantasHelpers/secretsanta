@@ -17,8 +17,15 @@ class WishListItem extends React.Component {
   render() {
     return (
 
-        <ListGroupItem onClick={this.handleClick}> {this.props.item} </ListGroupItem>
-      )
+        <ListGroupItem onClick={this.handleClick}>
+          <img className="WishListImage" src={this.props.image} />
+          <div className="WishListTitle">
+            {this.props.item}</div>
+          <div className="WishListPrice">
+            {this.props.price}
+          </div>
+        </ListGroupItem>
+      );
   }
 }
 

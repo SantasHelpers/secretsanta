@@ -8,12 +8,15 @@ class GroupBox extends React.Component { //ES6 class
     this.state = {
     };
     this.handleClick = this.handleClick.bind(this);
+    this.addGroup = this.addGroup.bind(this);
   }
   handleClick () {
     console.log('why you clicking the box?');
   }
 
-
+  addGroup () {
+    console.log('add group function');
+  }
 
 
   render () { //needs a button and subcomponent GroupItem
@@ -22,7 +25,7 @@ class GroupBox extends React.Component { //ES6 class
       <div className="GroupBox">
 
         <ButtonToolbar>
-          <Button block bsStyle="primary" bsSize="small">Add Group</Button>
+          <Button block bsStyle="primary" bsSize="small" onClick={this.addGroup}>Add Group</Button>
         </ButtonToolbar>
 
         <ListGroup>

@@ -5,6 +5,7 @@ import { Grid, Row, Col, Thumbnail, Button  }  from 'react-bootstrap';
 import React from 'react';
 import GroupBox from './GroupBox.jsx';
 import WishListBox from './WishListBox.jsx';
+import PendingBox from './PendingBox.jsx';
 
 
 //import { Grid } from 'react-bootstrap';
@@ -34,7 +35,7 @@ class App extends React.Component {
       return (
         <div>
           <GroupBox groups={['group1', 'group2', 'group3']} />
-
+          <PendingBox PendingBoxItems={[{avatar: 'avatar1'}, {avatar: 'avatar2'}]} />
           <WishListBox wishListItems={['cucumber', 'cheese', 'blender']} />
         </div>
       );
