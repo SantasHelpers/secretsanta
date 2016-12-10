@@ -1,26 +1,49 @@
 /* styles.css */
 #mainApp {
   position: static;
+  height: 100vh;
+  width: 100%;
+  background-image: url('http://media.istockphoto.com/photos/christmas-decoration-picture-id496443016?k=6&m=496443016&s=170667a&w=0&h=OGhD0JVEpWtLadMeQJrcevxBWzjARWFshoN5DmIuono=');
+  background-size: cover;
 }
 
 #GroupBox { /*Groupbox will be fixed to top left corner*/
   position: fixed;
   width: 20%;
   top: 50px;
+  opacity: 0.9;
 }
 
 #pendingAndWishList {
   position: relative;
   left: 21%;
   width: 75%;
+  opacity: 0.9;
 }
 
 #PendingBox { /*Relative to the groupbox*/
   position: relative;
   top: 0;
+
 }
 
 #WishListBox { /*Relative to the groupbox*/
   position: relative;
   bottom: 0;
+}
+
+.PendingItem{ /*set the image element to the left of the containing pendingItem element, and the rest of everything on the right border*/
+  background-image:url('http://plusquotes.com/images/quotes-img/Merry_christmas-6.jpg');
+  background-size: cover;
+  font-size: 200%;
+  font-weight: bold;
+  color: green;
+}
+
+.WishListItem{
+
+}
+
+.GroupItem {
+
 }

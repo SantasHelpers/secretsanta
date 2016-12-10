@@ -16,7 +16,7 @@ class PendingItem extends React.Component {
 
   render () {
     return (
-        <ListGroupItem>
+        <ListGroupItem className="PendingItem">
           <img className="TargetAvatar" src={this.props.avatar} />
           <div>{this.props.item.avatar}</div>
           <div>{'GroupName'} </div>
