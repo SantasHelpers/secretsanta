@@ -22,7 +22,7 @@ class GroupBox extends React.Component { //ES6 class
   render () { //needs a button and subcomponent GroupItem
     return ( //wrap this whole thing in a table
 
-      <div className="GroupBox">
+      <div id="GroupBox">
 
         <ButtonToolbar>
           <Button block bsStyle="primary" bsSize="small" onClick={this.addGroup}>Add Group</Button>

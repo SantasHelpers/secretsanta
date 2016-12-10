@@ -21,14 +21,16 @@ class App extends React.Component {
   handleClick () {
     console.log('nice you clicked the page')
   }
-}
 
-   render () {
+
+  render () {
       return (
-        <div>
+        <div id='mainApp'>
           <GroupBox groups={['group1', 'group2', 'group3']} />
-          <PendingBox PendingBoxItems={[{avatar: 'avatar1'}, {avatar: 'avatar2'}]} />
-          <WishListBox wishListItems={['cucumber', 'cheese', 'blender']} />
+          <div id='pendingAndWishList'>
+            <PendingBox PendingBoxItems={[{avatar: 'avatar1'}, {avatar: 'avatar2'}]} />
+            <WishListBox wishListItems={['cucumber', 'cheese', 'blender']} />
+          </div>
         </div>
       );
     };

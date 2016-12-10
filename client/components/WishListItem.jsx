@@ -14,9 +14,9 @@ class WishListItem extends React.Component {
     console.log('this will redirect to the item page on amazon');
   }
 
-  render() {
-    return (
 
+  render () {
+    return (
         <ListGroupItem onClick={this.handleClick}>
           <img className="WishListImage" src={this.props.image} />
           <div className="WishListTitle">
