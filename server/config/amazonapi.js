@@ -1,5 +1,8 @@
 var aws = require('aws-lib');
 var keys = require('./config');
+var prodAdv = aws.createProdAdvClient(keys.keyId, keys.secretKey, keys.aId);
+
+
 var returnFormatted = function(array) {
   var results = [];
   // console.log(array.length);
@@ -18,7 +21,6 @@ var returnFormatted = function(array) {
       } else {
         item.category = 'Santa';
       }
-      // console.log(item);
       results.push(item);
     }
   })
@@ -26,13 +28,11 @@ var returnFormatted = function(array) {
 };
 
 
-module.exports = function(keyword) {
-  prodAdv = aws.createProdAdvClient(keys.keyId, keys.secretKey, keys.aId);
-
+module.exports = function(keyword, cb) {
   prodAdv.call("ItemSearch", { SearchIndex: 'All', Keywords: keyword, ResponseGroup: 'Medium' }, function(err, result) {
     var returnedArray = result.Items.Item;
     // console.log(returnedArray);
     // console.log(returnedArray[1]);
-    return returnFormatted(returnedArray);
+    cb( returnFormatted(returnedArray));
   });
 };
