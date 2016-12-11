@@ -7,9 +7,9 @@ var port = port = process.env.PORT || 8000;
 
 var app = express();
 
+app.use(express.static('../dist/'));
 app.use('/', express.static(path.join(__dirname + '/../client')));
-app.use(express.static('../client'));
-app.use(express.static('../dist'));
+// app.use(express.static('../client'));
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 app.use(routes);
