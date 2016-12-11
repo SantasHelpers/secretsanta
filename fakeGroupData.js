@@ -1,4 +1,4 @@
-[
+var fakeGroupData = [
   {
     name: 'HR50',
     summary: 'hackreactor\' best cohort!',
@@ -24,3 +24,5 @@
     users: ['A', 'B', 'C']
   },
 ]
+
+export default fakeGroupData;

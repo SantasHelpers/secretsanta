@@ -1,8 +1,10 @@
 import { ListGroup, Nav, NavItem, Grid, Row, Col, Thumbnail, Button, ButtonToolbar  }  from 'react-bootstrap';
 import React from 'react';
 import GroupItem from './GroupItem.jsx';
+import { observer } from 'mobx-react';
+import santaStore from './SantaStore';
 
-class GroupBox extends React.Component { //ES6 class
+var GroupBox = observer(class GroupBox extends React.Component { //ES6 class
   constructor (props) {
     super (props);
     this.state = {
@@ -29,7 +31,8 @@ class GroupBox extends React.Component { //ES6 class
         </ButtonToolbar>
 
         <ListGroup>
-          {this.props.groups.map((group, index) =>
+          {
+            santaStore.groupData.map((group, index) =>
             <GroupItem className="GroupItem" group={group} key={index} />
             )
           }
@@ -37,5 +40,6 @@ class GroupBox extends React.Component { //ES6 class
       </div>
       );
   }
-}
+})
+
 export default GroupBox;
