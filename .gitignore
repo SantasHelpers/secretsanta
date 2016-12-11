@@ -3,5 +3,6 @@ compiled/
 server/config.js
 dist/
 client/bundle.js
+client/dist/
 temp
 npm-debug.log
