@@ -4,7 +4,7 @@ var router = require('express').Router();
 
 var GETREQUEST = function(req, res, next) {
   console.log('GET');
-  var keyword = req.body;
+  var keyword = req.data;
   amazon(keyword, function(result) {
 
     res.status(200).send(result);

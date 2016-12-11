@@ -33,6 +33,6 @@ module.exports = function(keyword, cb) {
     var returnedArray = result.Items.Item;
     // console.log(returnedArray);
     // console.log(returnedArray[1]);
-    cb( returnFormatted(returnedArray));
+    cb (returnFormatted(returnedArray));
   });
 };
