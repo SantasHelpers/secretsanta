@@ -10,8 +10,10 @@
 #GroupBox { /*Groupbox will be fixed to top left corner*/
   position: fixed;
   width: 20%;
-  top: 50px;
+  height: 90vh;
+  top: 25px;
   opacity: 0.9;
+  overflow-y: auto;
 }
 
 #pendingAndWishList {
@@ -46,4 +48,14 @@
 
 .GroupItem {
 
+}
+
+.GroupAvatar {
+  height: 100%;
+  width: 100%;
+}
+
+.WishListImage {
+  height: 15%;
+  width: 15%;
 }

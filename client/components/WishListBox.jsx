@@ -26,8 +26,8 @@ var WishListBox = observer(class WishListBox extends React.Component {
       <div id='WishListBox'>
         <Button block onClick={this.addItem}> Add An Item To Wishlist </Button>
         <ListGroup>
-          { 
-           santaStore.data.map((item, index) =>
+          {
+           santaStore.wishListData.map((item, index) =>
               <WishListItem item={item} key={index} />
               )
           }

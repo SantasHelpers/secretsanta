@@ -1,7 +1,9 @@
 import { ListGroup, ListGroupItem, Nav, NavItem, Grid, Row, Col, Thumbnail, Button, ButtonToolbar  }  from 'react-bootstrap';
 import React from 'react';
+import { observer } from 'mobx-react';
+import santaStore from './SantaStore';
 
-class GroupItem extends React.Component {
+var GroupItem = observer(class GroupItem extends React.Component {
   constructor (props) {
     super (props);
 
@@ -19,14 +21,14 @@ class GroupItem extends React.Component {
 
   render () {
     return (
-      <ListGroupItem header='yoyo' onClick={this.handleClick}>
-        <img className="GroupAvatar" src={this.props.avatar} />
-       {"small group description passed as prop later"}
+      <ListGroupItem header={this.props.group.name} onClick={this.handleClick}>
+        <img className="GroupAvatar" src={this.props.group.imageUrl} />
+        <div className="GroupDescription">{this.props.group.summary} </div>
       </ListGroupItem>
       );
   }
 
-}
+})
 
 
 
