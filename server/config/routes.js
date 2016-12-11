@@ -4,7 +4,8 @@ var router = require('express').Router();
 
 var GETREQUEST = function(req, res, next) {
   console.log('GET');
-  amazon('tennis balls', function(result) {
+  var keyword = req.data;
+  amazon(keyword, function(result) {
 
     res.status(200).send(result);
   })
@@ -15,6 +16,7 @@ var POST = function() {
 };
 /////////////////////////// ENDPOINTS
 router.route('/api').get(GETREQUEST);
+router.route('api/user/party')
 module.exports = router;
 
 // module.exports = function(app, express) {
