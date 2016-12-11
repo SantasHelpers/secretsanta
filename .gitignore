@@ -6,3 +6,4 @@ client/bundle.js
 client/dist/
 temp
 npm-debug.log
+data/
