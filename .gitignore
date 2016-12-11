@@ -4,4 +4,4 @@ server/config.js
 dist/
 client/bundle.js
 temp
-
+npm-debug.log
