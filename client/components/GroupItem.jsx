@@ -19,7 +19,7 @@ class GroupItem extends React.Component {
 
   render () {
     return (
-      <ListGroupItem header={this.props.group} onClick={this.handleClick}>
+      <ListGroupItem header='yoyo' onClick={this.handleClick}>
         <img className="GroupAvatar" src={this.props.avatar} />
        {"small group description passed as prop later"}
       </ListGroupItem>
