@@ -1,6 +1,6 @@
 node_modules/
 compiled/
-server/config.js
+server/config/config.js
 dist/
 client/bundle.js
 client/dist/
