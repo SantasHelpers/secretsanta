@@ -6,8 +6,11 @@ import React from 'react';
 import GroupBox from './GroupBox.jsx';
 import WishListBox from './WishListBox.jsx';
 import PendingBox from './PendingBox.jsx';
+import { observer } from 'mobx-react';
+import santaStore from './SantaStore';
 
-class App extends React.Component {
+
+var App = observer(class App extends React.Component {
 
   constructor (props) {
     super (props);
@@ -21,7 +24,6 @@ class App extends React.Component {
   handleClick () {
     console.log('nice you clicked the page')
   }
-
 
   render () {
       return (
@@ -59,6 +61,7 @@ class App extends React.Component {
         </div>
       );
     };
-}
+})
+
 
 export default App;

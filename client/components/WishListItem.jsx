@@ -1,7 +1,9 @@
 import { ListGroupItem, Nav, NavItem, Grid, Row, Col, Thumbnail, Button, ButtonToolbar  }  from 'react-bootstrap';
 import React from 'react';
+import { observer } from 'mobx-react';
+import santaStore from './SantaStore';
 
-class WishListItem extends React.Component {
+var WishListItem = observer(class WishListItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,15 +20,15 @@ class WishListItem extends React.Component {
   render () {
     return (
         <ListGroupItem onClick={this.handleClick}>
-          <img className="WishListImage" src={this.props.image} />
+          <img className="WishListImage" src={this.props.item.imageURL} />
           <div className="WishListTitle">
-            {this.props.item}</div>
+            {this.props.item.name}</div>
           <div className="WishListPrice">
-            {this.props.price}
+            {this.props.item.price}
           </div>
         </ListGroupItem>
       );
   }
-}
+})
 
 export default WishListItem;
