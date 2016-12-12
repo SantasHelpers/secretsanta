@@ -75,7 +75,7 @@ var addUser = function(req, res) {
 }
 var addGroup = function(req, res) {
   console.log(req.body.data);
-  Group.create(req.body.data, function(err, success) {
+  Group.create(req.body.data.group, function(err, success) {
     if (err) {
       console.log(err);
     } else {

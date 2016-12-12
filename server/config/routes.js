@@ -5,10 +5,9 @@ var controller = require('../mongooseQueries.js');
 
 var amazonsearch = function(req, res, next) {
   console.log('GET');
-  console.log(req.body);
-  var keyword = req.body.data;
+var data = JSON.parse(req.query.data);
   // console.log('amazonsearchkeyword', keyword);
-  amazon(keyword, function(result) {
+  amazon(data.keyword, function(result) {
 
     res.status(200).send(result);
   })
