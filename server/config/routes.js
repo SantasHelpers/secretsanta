@@ -40,6 +40,9 @@ router.route('/api/item')
   //change status to claimed : TODO for legacy.
   .put();
 
+router.route('/api/getUser')
+.get(controller.getUser);
+
 //TARGET INFO
 router.route('/api/target')
   // get target by user and group
