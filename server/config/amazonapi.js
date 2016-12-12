@@ -8,12 +8,11 @@ var returnFormatted = function(array) {
   // console.log(array.length);
   if (array.length !== 0) {
     array.forEach(function(val) {
-      if (val.ItemAttributes.ListPrice) {
+      if (val.ItemAttributes.ListPrice && val.MediumImage) {
         var item = {
           name: val.ItemAttributes.Title,
           price: val.ItemAttributes.ListPrice.Amount / 100,
-          imageURL:
-          Image.URL,
+          imageURL: val.MediumImage.URL,
           URL: val.DetailPageURL
         };
         if (item.price <= 10) {
