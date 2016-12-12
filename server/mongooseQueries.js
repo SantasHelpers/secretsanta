@@ -51,7 +51,7 @@ var getAllUsers = function(req, res) {
     });
 };
 var getGroupsByUser = function(req, res) {
-  console.log('getgroupsbyuserdata',req.body.data);
+  console.log('getgroupsbyuserdata',req.body);
   User.find(req.body.data).then(function(err, user) {
     if (err) {
       console.log(err);

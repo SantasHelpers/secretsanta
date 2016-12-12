@@ -36,15 +36,17 @@ import AddUserPage from './components/AddUserPage.jsx'
 //   .catch(function (error) {
 //     console.log(error);
 //   });
-  axios.get('/api/groups', {
-    data: {username:'test'}
-})
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
+  // axios.get('/api/groups', {
+  //     params: {
+  //     data: {username:'test'}
+  //   }
+  // })
+  // .then(function (response) {
+  //   console.log(response);
+  // })
+  // .catch(function (error) {
+  //   console.log(error);
+  // });
 
 ReactDOM.render(
   <Router history={hashHistory}>

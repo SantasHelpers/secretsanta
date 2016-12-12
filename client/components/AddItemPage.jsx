@@ -9,7 +9,7 @@ import santaStore from './SantaStore';
 // not sure if need MOBX here,  will hold off
 
 var AddItemPage = observer(class AddItemPage extends React.Component {
-  
+
    constructor (props) {
     super (props);
     this.onButtonClick = this.onButtonClick.bind(this);
@@ -17,16 +17,17 @@ var AddItemPage = observer(class AddItemPage extends React.Component {
 
   onButtonClick (e) {
     e.preventDefault();
-    
+
     var data = {
       keyword: this.refs.keyword.value,
       username: santaStore.currentUser
     };
 
     console.log(santaStore.currentUser);
-
-    axios.post('/api/item', {
+    axios.get('/api/amazon', {
+      params:{
         data: data
+      }
     })
     .then(function (response) {
       console.log(response);
@@ -45,7 +46,7 @@ var AddItemPage = observer(class AddItemPage extends React.Component {
         <h5>:</h5><input type="text" name="keyword" ref="keyword" size="50"/><br/>
         <button name="button" onClick={this.onButtonClick.bind(this)}>Search for Gifts</button>
       </div>
-     </div> 
+     </div>
       );
   }
 })

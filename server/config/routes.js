@@ -5,7 +5,9 @@ var controller = require('../mongooseQueries.js');
 
 var amazonsearch = function(req, res, next) {
   console.log('GET');
-  var keyword = req.data;
+  console.log(req.body);
+  var keyword = req.body.data;
+  // console.log('amazonsearchkeyword', keyword);
   amazon(keyword, function(result) {
 
     res.status(200).send(result);
@@ -13,7 +15,7 @@ var amazonsearch = function(req, res, next) {
 };
 
 /////////////////////////// ENDPOINTS
-router.route('/api/amazonsearch').get(amazonsearch); //input keyword output searchResults
+router.route('/api/amazon').get(amazonsearch); //input keyword output searchResults
 
 //USER
 router.route('/api/users')
