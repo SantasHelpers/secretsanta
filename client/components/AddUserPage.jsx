@@ -2,10 +2,12 @@
 
 import React from 'react';
 import axios from 'axios'
+import { observer } from 'mobx-react';
+import santaStore from './SantaStore';
 
 // not sure if need MOBX here,  will hold off
 
-export default class AddUserPage extends React.Component {
+var AddUserPage = observer(class AddUserPage extends React.Component {
  
 
    constructor (props) {
@@ -22,9 +24,8 @@ export default class AddUserPage extends React.Component {
     };
 
     axios.post('/api/users', {
-      params: {
-        data: data
-      }
+        data: data,
+
     })
     .then(function (response) {
       console.log(response);
@@ -45,4 +46,6 @@ export default class AddUserPage extends React.Component {
       </div>
       );
   }
-}
+})
+
+export default AddUserPage;

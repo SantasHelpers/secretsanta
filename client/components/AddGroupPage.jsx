@@ -1,11 +1,13 @@
 //AddGroupPage.jsx
 
 import React from 'react';
-import axios from 'axios'
+import axios from 'axios';
+import { observer } from 'mobx-react';
+import santaStore from './SantaStore';
 
 // not sure if need MOBX here,  will hold off
 
-export default class AddGroupPage extends React.Component {
+var AddGroupPage = observer(class AddGroupPage extends React.Component {
 
    constructor (props) {
     super (props);
@@ -16,13 +18,12 @@ export default class AddGroupPage extends React.Component {
     e.preventDefault();
     
     var data = {
-      group: this.refs.group.value
+      group: this.refs.group.value,
+      username: santaStore.username
     };
 
     axios.post('/api/groups', {
-      params: {
         data: data
-      }
     })
     .then(function (response) {
       console.log(response);
@@ -42,4 +43,6 @@ export default class AddGroupPage extends React.Component {
       </div>
       );
   }
-}
+})
+
+export default AddGroupPage;

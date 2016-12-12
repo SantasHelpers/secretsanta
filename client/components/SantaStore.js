@@ -9,10 +9,10 @@ class SantaStore {
   constructor () {
     extendObservable(this, {
       wishListData: data,
-      groupData: groupData
+      groupData: groupData,
+      currentUser: 'Bob'
     })
-    // this.users = ;
-    // this.groups =  ;
+
   }
  // MOBX mutates state directly in the store
  // good resource  http://www.robinwieruch.de/mobx-react/
