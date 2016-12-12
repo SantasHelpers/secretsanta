@@ -64,7 +64,8 @@ var getGroupsByUser = function(req, res) {
 
 
 var addUser = function(req, res) {
-  console.log(req.body.data);
+  console.log('body.data', req.body.data);
+  req.body.data.items = [];
   User.create(req.body.data, function(err, success) {
     if (err) {
       console.log(err);
@@ -87,13 +88,19 @@ var addGroup = function(req, res) {
 };
 
 var addItemToWishList = function(req, res) {
-  console.log(req.body.data);
-  User.findOne(req.body.data.user).then(function(err, success) {
+  console.log('in addItemToWishList');
+  console.log(req.body.data.user);
+  User.findOne(req.body.data.user, function(err, user) {
     if (err) {
+      console.log('error');
       console.log(err);
     } else {
-      User.items.push(req.body.data.item);
-      User.save(function(err, updatedUser) {
+      if (!user.items) {
+        user.items = [];
+      }
+      user.items.push(req.body.data.item);
+      // console.log('items', User.items);
+      user.save(function(err, updatedUser) {
         if (err) {
           console.log(err);
         } else {
@@ -109,9 +116,7 @@ module.exports.addGroup = addGroup;
 module.exports.getAllUsers = getAllUsers;
 module.exports.getGroupsByUser = getGroupsByUser;
 module.exports.addItemToWishList = addItemToWishList;
-module.exports.getWishlistByUser = getWishlistByUser; //
-//all members
-
+module.exports.getWishlistByUser = getWishlistByUser;
 //////TEST QUERIES//////
 // findUserByUsername('Johnson');
 // getWishlistByUser({body:{username:'Johnson'}},{});

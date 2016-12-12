@@ -22,6 +22,7 @@ var returnFormatted = function(array) {
         } else {
           item.category = 'Santa';
         }
+        console.log(item);
         results.push(item);
       }
     })
@@ -31,14 +32,14 @@ var returnFormatted = function(array) {
 
 
 module.exports = function(keyword, cb) {
-  console.log(keyword);
+  // console.log(keyword);
   prodAdv.call("ItemSearch", { SearchIndex: 'All', Keywords: keyword, ResponseGroup: 'Medium' }, function(err, result) {
     if(err){
       console.log(err);
     }
     var returnedArray = result.Items.Item;
-    console.log('returned',returnedArray);
+    // console.log('returned',returnedArray);
 
-    // cb(returnFormatted(returnedArray));
+    cb(returnFormatted(returnedArray));
   });
 };
