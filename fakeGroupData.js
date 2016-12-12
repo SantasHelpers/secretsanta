@@ -3,7 +3,7 @@ var fakeGroupData = [
     name: 'HR50',
     summary: 'hackreactor\' best cohort!',
     imageUrl: 'http://www.planwallpaper.com/static/images/desktop-year-of-the-tiger-images-wallpaper.jpg',
-    users: ['Tyler', 'Joosang', 'Phil', 'Fiona']
+    users: ['Tyler', 'Joosang', 'Phil', 'Chan']
   },
   {
     name: 'Family',
@@ -25,4 +25,4 @@ var fakeGroupData = [
   },
 ]
 
-export default fakeGroupData;
+module.exports = fakeGroupData;

@@ -88,7 +88,8 @@ var addGroup = function(req, res) {
 
 var addItemToWishList = function(req, res) {
   console.log('in addItemToWishList');
-  console.log(req.body.data.user);
+  // console.log(req.body.data.user);
+  // console.log(req.body.data.item);
   User.findOne(req.body.data.user, function(err, user) {
     if (err) {
       console.log('error');
