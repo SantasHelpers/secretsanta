@@ -4,8 +4,6 @@
 import { Grid, Row, Col, Thumbnail, Button  }  from 'react-bootstrap';
 import React from 'react';
 import GroupBox from './GroupBox.jsx';
-import WishListBox from './WishListBox.jsx';
-import PendingBox from './PendingBox.jsx';
 import { observer } from 'mobx-react';
 import santaStore from './SantaStore';
 
@@ -30,8 +28,7 @@ var App = observer(class App extends React.Component {
         <div id='mainApp'>
           <GroupBox/>
           <div id='pendingAndWishList'>
-            <PendingBox PendingBoxItems={[{avatar: 'avatar1'}, {avatar: 'avatar2'}]} />
-            <WishListBox/>
+            {this.props.children}
           </div>
         </div>
       );
@@ -40,3 +37,6 @@ var App = observer(class App extends React.Component {
 
 
 export default App;
+
+// <PendingBox PendingBoxItems={[{avatar: 'avatar1'}, {avatar: 'avatar2'}]} />
+// <WishListBox/>
