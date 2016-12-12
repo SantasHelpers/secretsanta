@@ -4,7 +4,6 @@ import React from 'react';
 import axios from 'axios';
 import { observer } from 'mobx-react';
 import santaStore from './SantaStore';
-import WishListBox from './WishListBox';
 import ItemSearchBox from './ItemSearchBox';
 
 
