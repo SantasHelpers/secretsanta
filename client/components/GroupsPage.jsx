@@ -6,10 +6,10 @@ import { observer } from 'mobx-react';
 import santaStore from './SantaStore';
 
 // not sure if need MOBX here,  will hold off
-// group page needs Group name, group 
+// group page needs Group name, group
 
  var GroupPage = observer(class GroupsPage extends React.Component {
-  
+
   constructor (props) {
     super (props);
 
@@ -25,6 +25,17 @@ import santaStore from './SantaStore';
       }
     })
 
+    console.log('allusers prop is ', santaStore.allUsers);
+    if (santaStore.allUsers === null){
+      axios.get('/api/users')
+      .then(function (response) {
+        console.log('successfully got all users', response);
+        santaStore.allUsers = response;
+      })
+      .catch(function (error) {
+        console.log('error getting all users', error);
+      })
+    }
   }
 
   render() {
@@ -32,6 +43,11 @@ import santaStore from './SantaStore';
     var current = santaStore.currentGroup;
     var group = santaStore.groupData[current];
     var sliced = group.users.slice();
+    var listOfUsers = santaStore.allUsers.slice();
+    console.log('group Name: ', group.name);
+    console.log('summary :', group.summary);
+    console.log('summary :', sliced);
+    console.log('list of users :', santaStore.allUsers, listOfUsers);
 
     return (
       <div>
@@ -42,8 +58,15 @@ import santaStore from './SantaStore';
           <ListGroup>
             {
              sliced.map((user, index) =>
-                <ListGroupItem user={user} key={index}>{user}</ListGroupItem>
+                <ListGroupItem user={user} key={index}> {user}</ListGroupItem>
               )
+            }
+          </ListGroup>
+          <ListGroup>
+            {
+              listOfUsers.map((user, index) =>
+                  <ListGroupItem user={user} key={index} > {user} </ListGroupItem>
+                )
             }
           </ListGroup>
       </div>

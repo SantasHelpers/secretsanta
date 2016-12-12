@@ -14,6 +14,7 @@ class SantaStore {
       currentUser: 'Bob',
       currentGroup: 0,
       itemSearchData: [],
+      allUsers: null
     })
 
   }
