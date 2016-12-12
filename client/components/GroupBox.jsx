@@ -1,5 +1,6 @@
 import { ListGroup, Nav, NavItem, Grid, Row, Col, Thumbnail, Button, ButtonToolbar  }  from 'react-bootstrap';
 import React from 'react';
+import { Link } from 'react-router';
 import GroupItem from './GroupItem.jsx';
 import { observer } from 'mobx-react';
 import santaStore from './SantaStore';
@@ -28,6 +29,7 @@ var GroupBox = observer(class GroupBox extends React.Component { //ES6 class
 
         <ButtonToolbar>
           <Button block bsStyle="primary" bsSize="small" onClick={this.addGroup}>Add Group</Button>
+          <Link to="adduser">Add User</Link>
         </ButtonToolbar>
 
         <ListGroup>
