@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { ListGroupItem, Nav, NavItem, Grid, Row, Col, Thumbnail, Button, ButtonToolbar  }  from 'react-bootstrap';
 import React from 'react';
 import { observer } from 'mobx-react';
@@ -20,7 +21,7 @@ var ItemSearchResult = observer(class ItemSearchResult extends React.Component {
   addItem() {
     axios.post('/api/item', {
       data: {
-        user:{username: this.refs.username.value},
+        user:santaStore.currentUser,
         item: {
           name: this.props.item.name,
           price: this.props.item.price,
