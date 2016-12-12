@@ -35,26 +35,33 @@ var getWishlistByUser = function(req, res) {
 var getUserGroupMemberList = function(req, res) {
   findUserByUsername(req.body.username, function(user) {
     var group = user.groups.filter((el) => el.name === req.body.groupname );
-    console.log(group);
     res.send(group);
   });
 };
 
 var getAllUsers = function(req, res) {
   models.User.find({})
-  .then(function(user) {
-    console.log(user);
-    res.send(user);
+  .then(function(users) {
+    console.log(users);
+    res.send(users);
   });
 };
 
+var deleteItemFromUserWishlist = function(req, res) {
+  models.User.findOneAndUpdate({username: req.body.username},
+    {$pull: {items: {name: req.body.deleteitem}}}, function(err, data) {
+      console.log(err, data);
+      res.send(err, data);
+    }
+  );
+};
 
-//////TEST QUERIES//////
+//////TEST QUERIES////// Use these as examples
 // findUserByUsername('Johnson');
-// getWishlistByUser({body:{username:'Johnson'}},{});
+// getWishlistByUser({body: {username: 'Juli'}}, {});
 // getUserGroupMemberList({body: { username: 'Johnson', groupname: 'hr50'}}, {});
 // getAllUsers();
-
+deleteItemFromUserWishlist({body: {username: 'Juli', deleteitem: 'test item'}});
 
 // models.User.find({username:'Johnson'})
 // .then(function(user) {
@@ -79,6 +86,32 @@ var getAllUsers = function(req, res) {
 //       imageURL: 'http://www.testitem.com/images/testitem.img',
 //       price: 150,
 //       category: 'elf'
+//     }
+//   ]
+// });
+//
+// var newUser = new models.User({
+//   username: 'Juli',
+//   groups: [
+//     {
+//       name: 'hr50',
+//       summary: 'this is a group of awesome shazzam',
+//       imageURL: 'http://www.dumbimage.com/images/img.img',
+//       users: ['Johnson', 'Juli', 'Jered']
+//     }
+//   ],
+//   items: [
+//     {
+//       name: 'test item',
+//       imageURL: 'http://www.testitem.com/images/testitem.img',
+//       price: 150,
+//       category: 'elf'
+//     },
+//     {
+//       name: 'Juli\'s favorite item',
+//       imageURL: 'http://www.testitem.com/images/testitem.img',
+//       price: 150,
+//       category: 'reindeer'
 //     }
 //   ]
 // });
