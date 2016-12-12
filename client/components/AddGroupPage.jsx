@@ -5,6 +5,8 @@ import React from 'react';
 // not sure if need MOBX here,  will hold off
 
 export default class AddGroupPage extends React.Component {
+  
+
   render() {
 
     return (
