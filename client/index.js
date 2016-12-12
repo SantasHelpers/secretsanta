@@ -1,9 +1,9 @@
 // TODO: Render the `App` component to the DOM
 import React from 'react';
 import ReactDOM from 'react-dom';
-import store from './components/SantaStore.js'
-import axios from 'axios'
-import { Router, Route, IndexRoute, hashHistory } from 'react-router'
+import store from './components/SantaStore.js';
+import axios from 'axios';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 
 // import route level components here

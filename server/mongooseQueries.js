@@ -50,7 +50,8 @@ var getAllUsers = function(req, res) {
 };
 
 var getGroupsByUser = function(req, res) {
-  var passedUsername = req.body.data.username;
+  // var passedUsername = req.body.data.username;
+  console.log(req.params);
   findUserByUsername(passedUsername, function(user) {
     Group.find({'_id':
       {$in: user.get('groups')}

@@ -6,14 +6,62 @@ import React from 'react';
 import GroupBox from './GroupBox.jsx';
 import { observer } from 'mobx-react';
 import santaStore from './SantaStore';
+import axios from 'axios';
 
 
 var App = observer(class App extends React.Component {
 
   constructor (props) {
     super (props);
-
     this.handleClick = this.handleClick.bind(this);
+
+    // GET Groups user is a member of
+    axios.get('/api/groups', {
+        params: {data: {username: 'Phil'}}
+    })
+    .then(function (response) {
+     console.log('groups for phil:', response);
+      santaStore.groupData = response;
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
+    // // GET WishList user is a member of
+    // axios.get('/api/item', {
+    //     username: 'Phil'
+    // })
+    // .then(function (response) {
+    //  // console.log(response);
+    //   santaStore.currentUser = 'Phil';
+    //   santaStore.wishListData = response;
+    // })
+    // .catch(function (error) {
+    //   console.log(error);
+    // });
+
+    // // // GET PendingList user is a member of
+    // // axios.get('/api/getUser', {
+    // //     data: {username: 'Phil'}
+    // // })
+    // // .then(function (response) {
+    // //  // console.log(response);
+    // //   santaStore.pendingList = response;
+    // // })
+    // // .catch(function (error) {
+    // //   console.log(error);
+    // // });
+
+    // // GET All user is a member of
+    // axios.get('/api/users')
+    // .then(function (response) {
+    //  console.log("all users, ", response);
+    //   santaStore.allUsers = response.data;
+    // })
+    // .catch(function (error) {
+    //   console.log(error);
+    // });
+
   } 
 
   handleClick () {
