@@ -45,7 +45,7 @@ var AddGroupPage = observer(class AddGroupPage extends React.Component {
         <h2>This is the Add Group Page</h2>
         <h5>Group:</h5><input type="text" name="group" ref="group" size="50"/><br/>
         <h5>Tell us about your Group</h5> <br/>
-        <textarea type="text" name="summary" ref="summary" rows="50" cols="25"/> <br/>
+        <textarea type="text" name="summary" ref="summary" rows="20" cols="100"/> <br/>
         <button name="button" onClick={this.onButtonClick.bind(this)}>Add Group</button>
       </div>
       );
