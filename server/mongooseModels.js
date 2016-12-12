@@ -11,8 +11,7 @@ db.once('open', function() {
 var itemSchema = mongoose.Schema({
   name: {
     type: String,
-    index: true,
-    unique: true
+    index: true
   },
   imageURL: String,
   URL: String,
@@ -30,6 +29,7 @@ var groupSchema = mongoose.Schema({
   summary: String,
   imageURL: String,
   users: [String],
+  targets: []
 });
 
 var userSchema = mongoose.Schema({
@@ -41,8 +41,7 @@ var userSchema = mongoose.Schema({
   name: String,
   groups: [String],
   items: [itemSchema],
-  pendingGroups: [String],
-  matches: [Object]
+  pendingGroups: []
 });
 
 var Item = mongoose.model('Item', itemSchema);

@@ -61,7 +61,6 @@ var getGroupsByUser = function(req, res) {
   });
 };
 
-
 var addUser = function(req, res) {
   console.log('body.data', req.body.data);
   req.body.data.items = [];
@@ -130,22 +129,53 @@ var addUserToGroup = function(req, res) {
   });
 };
 
+var setRandomTargets = function(req, res) {
+  var passedGroupName = req.body.data.groupname;
+  var results = [];
+  findGroupByName(passedGroupName, function(group) {
+    console.log(group);
+    var userList = Array.from(group.get('users'));
+    var randUsers = [];
+    for (var i = userList.length; i > 0; i--) {
+      var randIndex = Math.floor(Math.random() * userList.length);
+      var selectedUser = userList.splice(randIndex, 1);
+      // console.log(selectedUser);
+      randUsers.push(selectedUser[0]);
+    }
+    for (var j = 0; j < randUsers.length; j++) {
+      var target = [randUsers[j], randUsers[(j + 1) % (randUsers.length)]];
+      results.push(target);
+    }
+    console.log('RESULTS = ', results);
+    models.Group.findOneAndUpdate({name: passedGroupName},
+      {$set: {targets: results}}, function(err, data) {
+        console.log(err, data);
+      }
+    );
+  });
+};
+
+//Get target (name, username) for group
+
 module.exports.addUser = addUser;
 module.exports.addGroup = addGroup;
 module.exports.getAllUsers = getAllUsers;
 module.exports.getGroupsByUser = getGroupsByUser;
 module.exports.addItemToWishList = addItemToWishList;
 module.exports.getWishlistByUser = getWishlistByUser;
+module.exports.setRandomTargets = setRandomTargets;
 
 //////TEST QUERIES////// Use these as examples
 // findUserByUsername('Johnson');
 // getWishlistByUser({body: {username: 'Juli'}}, {});
 // getGroupMemberList({body: {data: {groupname: 'TESTGROUP'}}}, {});
 // getAllUsers();
-// getGroupsByUser({body: {data: {username: 'Juli'}}}, {});
+getGroupsByUser({body: {data: {username: 'Juli'}}}, {});
 // deleteItemFromUserWishlist({body: {username: 'Juli', deleteitem: 'test item'}});
 // addUserToGroup({body: {data: {username: 'Johnson', groupname: 'hr50' }}}, {});
+// addUserToGroup({body: {data: {username: 'Johnson', groupname: 'TESTGROUP' }}}, {});
 // addUserToGroup({body: {data: {username: 'Juli', groupname: 'TESTGROUP' }}}, {});
+// setRandomTargets({body: {data: {groupname: 'TESTGROUP'}}}, {});
 
 ////////////////////Initialize dummy data////////////////////
 // var newGroup = new models.Group({
