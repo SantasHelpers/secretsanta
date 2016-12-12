@@ -1,15 +1,18 @@
 var mongoose = require('mongoose');
 var models = require('./mongooseModels.js');
 var Promise = require('bluebird');
+var User = models.User;
+var Group = models.Group;
+var Item = models.Item;
 
 // Helpers
 var findUserByUsername = function(passedUsername, cb) {
-  models.User.findOne({username: passedUsername})
-  .then(function(user) {
-    // console.log(user);
-    // res.send(user);
-    cb(user);
-  });
+  User.findOne({ username: passedUsername })
+    .then(function(user) {
+      // console.log(user);
+      // res.send(user);
+      cb(user);
+    });
 };
 
 var findUserGroup = function(passedUsername, passedGroupName) {
@@ -34,20 +37,43 @@ var getWishlistByUser = function(req, res) {
 
 var getUserGroupMemberList = function(req, res) {
   findUserByUsername(req.body.username, function(user) {
-    var group = user.groups.filter((el) => el.name === req.body.groupname );
+    var group = user.groups.filter((el) => el.name === req.body.groupname);
     console.log(group);
     res.send(group);
   });
 };
 
 var getAllUsers = function(req, res) {
-  models.User.find({})
-  .then(function(user) {
-    console.log(user);
-    res.send(user);
-  });
+  User.find({})
+    .then(function(user) {
+      console.log(user);
+      res.send(user);
+    });
 };
 
+var addUser = function(req, res) {
+  console.log(req.body.data);
+  User.create(req.body.data, function(err, success) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(success);
+      console.log('added new user');
+    }
+  });
+}
+var addGroup = function(req, res) {
+  console.log(req.body);
+  Group.create(req.body, function(err, success) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log('added new grouop');
+    }
+  });
+}
+module.exports.addUser = addUser;
+module.exports.addGroup = addGroup;
 
 //////TEST QUERIES//////
 // findUserByUsername('Johnson');

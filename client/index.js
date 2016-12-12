@@ -14,10 +14,21 @@ import AddGroupPage from './components/AddGroupPage.jsx'
 import AddItemPage from './components/AddItemPage.jsx'
 import AddUserPage from './components/AddUserPage.jsx'
 
-axios.get('/api', {
-  params: {
-    data:'coffee'
-  }
+// axios.get('/api/amazonsearch', {
+//   params: {
+//     data:'coffee'
+//   }
+// })
+//   .then(function (response) {
+//     console.log(response);
+//   })
+//   .catch(function (error) {
+//     console.log(error);
+//   });
+
+  axios.post('/api/users', {
+    data: {username:'username1',
+    name:'user1'}
 })
   .then(function (response) {
     console.log(response);
@@ -26,8 +37,8 @@ axios.get('/api', {
     console.log(error);
   });
 
-ReactDOM.render( 
-  <Router history={hashHistory}> 
+ReactDOM.render(
+  <Router history={hashHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={UserPage}></IndexRoute>
         <Route path="groups" name="groups" component={GroupsPage}></Route>
@@ -35,7 +46,7 @@ ReactDOM.render(
         <Route path="additem" name="additem" component={AddItemPage}></Route>
         <Route path="adduser" name="adduser" component={AddUserPage}></Route>
     </Route>
-  </Router> 
+  </Router>
   ,document.getElementById('app'));
 
   //<App/>, document.getElementById('app'));
