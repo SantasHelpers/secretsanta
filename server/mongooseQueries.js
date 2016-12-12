@@ -50,6 +50,17 @@ var getAllUsers = function(req, res) {
       res.send(user);
     });
 };
+var getGroupsByUser = function(req, res) {
+  console.log('getgroupsbyuserdata',req.body.data);
+  User.find(req.body.data).then(function(err, user) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log('sendinggroupsbyuser');
+      res.send(user.groups);
+    }
+  });
+}
 
 var addUser = function(req, res) {
   console.log(req.body.data);
@@ -74,6 +85,8 @@ var addGroup = function(req, res) {
 }
 module.exports.addUser = addUser;
 module.exports.addGroup = addGroup;
+module.exports.getAllUsers = getAllUsers;
+module.exports.getGroupsByUser = getGroupsByUser;
 
 //////TEST QUERIES//////
 // findUserByUsername('Johnson');

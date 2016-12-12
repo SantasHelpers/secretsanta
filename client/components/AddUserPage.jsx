@@ -24,8 +24,7 @@ var AddUserPage = observer(class AddUserPage extends React.Component {
     };
 
     axios.post('/api/users', {
-        data: data,
-
+        data: data
     })
     .then(function (response) {
       console.log(response);

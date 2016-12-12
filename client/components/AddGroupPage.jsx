@@ -16,7 +16,7 @@ var AddGroupPage = observer(class AddGroupPage extends React.Component {
 
   onButtonClick (e) {
     e.preventDefault();
-    
+
     var data = {
       username: santaStore.currentUser,
       group: {
