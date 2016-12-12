@@ -8,17 +8,15 @@ var Item = models.Item;
 // Helpers
 var findUserByUsername = function(passedUsername, cb) {
   User.findOne({ username: passedUsername })
-    .then(function(user) {
-      // console.log(user);
-      // res.send(user);
-      cb(user);
-    });
+  .then(function(user) {
+    cb(user);
+  });
 };
 
-var findUserGroup = function(passedUsername, passedGroupName) {
-  findUserByUsername(passedUsername, function(user) {
-    console.log(user.groups);
-    res.send(user.groups);
+var findGroupByName = function(passedGroupName, cb) {
+  Group.findOne({name: passedGroupName })
+  .then(function(group) {
+    cb(group);
   });
 };
 
@@ -35,11 +33,11 @@ var getWishlistByUser = function(req, res) {
   });
 };
 
-var getUserGroupMemberList = function(req, res) {
-  findUserByUsername(req.body.username, function(user) {
-    var group = user.groups.filter((el) => el.name === req.body.groupname);
-    console.log(group);
-    res.send(group);
+var getGroupMemberList = function(req, res) {
+  var passedGroupName = req.body.data.groupname;
+  findGroupByName(passedGroupName, function(group) {
+    console.log('Group members for ' + passedGroupName + ': ' + group.get('users'));
+    res.send(group.get('users'));
   });
 };
 
@@ -50,15 +48,16 @@ var getAllUsers = function(req, res) {
       res.send(user);
     });
 };
+
 var getGroupsByUser = function(req, res) {
-  console.log('getgroupsbyuserdata', req.body);
-  User.find(req.body.data).then(function(err, user) {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log('sendinggroupsbyuser');
-      res.send(user.groups);
-    }
+  var passedUsername = req.body.data.username;
+  findUserByUsername(passedUsername, function(user) {
+    Group.find({'_id':
+      {$in: user.get('groups')}
+    }, function(err, data) {
+      console.log(err, data);
+      res.send(data);
+    });
   });
 };
 
@@ -109,7 +108,26 @@ var addItemToWishList = function(req, res) {
       });
     }
   });
-}
+};
+
+var addUserToGroup = function(req, res) {
+  var groupToAdd = req.body.data.groupname;
+  var userToAdd = req.body.data.username;
+  console.log('adding user: ' + userToAdd + ' to group: ' + groupToAdd);
+  models.Group.findOneAndUpdate({name: groupToAdd},
+    {$push: {users: userToAdd}}, function(err, data) {
+      console.log(err, data);
+    }
+  );
+  models.Group.findOne({name: groupToAdd})
+  .then(function(foundGroup) {
+    console.log(foundGroup);
+    models.User.findOneAndUpdate({username: userToAdd},
+      {$push: {groups: foundGroup.get('_id')}}, function(err, data) {
+      }
+    );
+  });
+};
 
 module.exports.addUser = addUser;
 module.exports.addGroup = addGroup;
@@ -117,30 +135,30 @@ module.exports.getAllUsers = getAllUsers;
 module.exports.getGroupsByUser = getGroupsByUser;
 module.exports.addItemToWishList = addItemToWishList;
 module.exports.getWishlistByUser = getWishlistByUser;
-//////TEST QUERIES//////
+
+//////TEST QUERIES////// Use these as examples
 // findUserByUsername('Johnson');
-// getWishlistByUser({body:{username:'Johnson'}},{});
-// getUserGroupMemberList({body: { username: 'Johnson', groupname: 'hr50'}}, {});
+// getWishlistByUser({body: {username: 'Juli'}}, {});
+// getGroupMemberList({body: {data: {groupname: 'TESTGROUP'}}}, {});
 // getAllUsers();
-
-
-// models.User.find({username:'Johnson'})
-// .then(function(user) {
-//   console.log(user);
-// });
-
+// getGroupsByUser({body: {data: {username: 'Juli'}}}, {});
+// deleteItemFromUserWishlist({body: {username: 'Juli', deleteitem: 'test item'}});
+// addUserToGroup({body: {data: {username: 'Johnson', groupname: 'hr50' }}}, {});
+// addUserToGroup({body: {data: {username: 'Juli', groupname: 'TESTGROUP' }}}, {});
 
 ////////////////////Initialize dummy data////////////////////
+// var newGroup = new models.Group({
+//   name: 'TESTGROUP',
+//   summary: 'this group is for testing the add user to group functionality'
+// });
+//
+// var newGroup2 = new models.Group({
+//   name: 'hr50',
+//   summary: 'hr50 group summary'
+// });
+//
 // var newUser = new models.User({
 //   username: 'Johnson',
-//   groups: [
-//     {
-//       name: 'hr50',
-//       summary: 'this is a group of awesome shazzam',
-//       imageURL: 'http://www.dumbimage.com/images/img.img',
-//       users: ['Johnson', 'Juli', 'Jered']
-//     }
-//   ],
 //   items: [
 //     {
 //       name: 'test item',
@@ -151,8 +169,55 @@ module.exports.getWishlistByUser = getWishlistByUser;
 //   ]
 // });
 //
+// var newUser2 = new models.User({
+//   username: 'Juli',
+//   items: [
+//     {
+//       name: 'test item',
+//       imageURL: 'http://www.testitem.com/images/testitem.img',
+//       price: 150,
+//       category: 'elf'
+//     },
+//     {
+//       name: 'Juli\'s favorite item',
+//       imageURL: 'http://www.testitem.com/images/testitem.img',
+//       price: 150,
+//       category: 'reindeer'
+//     }
+//   ]
+// });
+//
+//
+// newGroup.save(function(err, group) {
+//   if (err) { console.log(err); }
+//   console.log('successfully saved ', group.get('name'));
+// });
+//
+// newGroup2.save(function(err, group) {
+//   if (err) { console.log(err); }
+//   console.log('successfully saved ', group.get('name'));
+// });
+//
 // newUser.save(function(err, user) {
 //   if (err) { console.log(err); }
 //   console.log('successfully saved ', user.get('username'));
 // });
+//
+// newUser2.save(function(err, user) {
+//   if (err) { console.log(err); }
+//   console.log('successfully saved ', user.get('username'));
+// });
 //////////////////////////////////////////////////////////////////
+
+//USER
+//GET ALL USERS
+//add user
+//PARTY
+//getPartyByUser input: user , output parties
+//add a new group
+//ITEM
+//getWishListByUser : input user, output wishList
+//add to user's wishList : input user , item
+//change status to claimed :
+//TARGET INFO
+// get target by user and group
