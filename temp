@@ -1,7 +1,25 @@
 temp
 
 
-    this.images = ['http://www.bodybuilding.com/images/2016/july/train-like-dwayne-the-rock-johnson-bigshot-v2-830x467.jpg', 
-    'http://static1.gamespot.com/uploads/original/1179/11799911/2877070-jason.jpg', 
+    this.images = ['http://www.bodybuilding.com/images/2016/july/train-like-dwayne-the-rock-johnson-bigshot-v2-830x467.jpg',
+    'http://static1.gamespot.com/uploads/original/1179/11799911/2877070-jason.jpg',
     'http://cdn-mf0.heartyhosting.com/sites/mensfitness.com/files/main-how-to-build-shoulders-like-vin-diesel.jpg',
     'http://www.pwpix.net/wp/wp-content/uploads/2015/04/john-cena-28361725-620x400.jpg'];
+
+
+    MOCKUPDATA
+
+    [
+      {
+        name: 'HR50',
+        summary: 'The better cohort',
+        imageURL: 'http://i.imgur.com/7LRY9he.jpg',
+        users: ['testuser'],
+      },
+      {
+        name: 'HR51',
+        summary: 'Not worth mentioning',
+        imageURL: 'https://s-media-cache-ak0.pinimg.com/736x/df/a2/ce/dfa2ce0026e9e760c62168457214f404.jpg'
+        users: ['testuser']
+      }
+    ]
