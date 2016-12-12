@@ -21,7 +21,7 @@ var ItemSearchResult = observer(class ItemSearchResult extends React.Component {
   addItem() {
     axios.post('/api/item', {
       data: {
-        user:santaStore.currentUser,
+        user: {username: santaStore.currentUser},
         item: {
           name: this.props.item.name,
           price: this.props.item.price,
