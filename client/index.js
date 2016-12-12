@@ -26,9 +26,19 @@ import AddUserPage from './components/AddUserPage.jsx'
 //     console.log(error);
 //   });
 
-  axios.post('/api/users', {
-    data: {username:'username1',
-    name:'user1'}
+//   axios.post('/api/users', {
+//     data: {username:'username1',
+//     name:'user1'}
+// })
+//   .then(function (response) {
+//     console.log(response);
+//   })
+//   .catch(function (error) {
+//     console.log(error);
+//   });
+  axios.post('/api/party', {
+    data: {name:'groupname1',
+    summary:'testGroup'}
 })
   .then(function (response) {
     console.log(response);

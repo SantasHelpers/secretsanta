@@ -27,7 +27,7 @@ router.route('/api/party')
 //getPartyByUser input: user , output parties
 .get()
 //add a new group
-.post();
+.post(controller.addGroup);
 
 
 //ITEM

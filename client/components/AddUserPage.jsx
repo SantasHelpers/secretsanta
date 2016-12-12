@@ -7,8 +7,8 @@ import santaStore from './SantaStore';
 
 // not sure if need MOBX here,  will hold off
 
+
 var AddUserPage = observer(class AddUserPage extends React.Component {
- 
 
    constructor (props) {
     super (props);
@@ -17,7 +17,7 @@ var AddUserPage = observer(class AddUserPage extends React.Component {
 
   onButtonClick (e) {
     e.preventDefault();
-    
+
     var data = {
       username: this.refs.newUser.value,
       name: this.refs.username.value

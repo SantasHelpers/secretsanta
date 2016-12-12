@@ -63,12 +63,12 @@ var addUser = function(req, res) {
   });
 }
 var addGroup = function(req, res) {
-  console.log(req.body);
-  Group.create(req.body, function(err, success) {
+  console.log(req.body.data);
+  Group.create(req.body.data, function(err, success) {
     if (err) {
       console.log(err);
     } else {
-      console.log('added new grouop');
+      console.log('added new group');
     }
   });
 }
