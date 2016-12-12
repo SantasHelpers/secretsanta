@@ -36,11 +36,14 @@ var AddItemPage = observer(class AddItemPage extends React.Component {
 
   render() {
     return (
+     <div>
       <div>
         <h2>This is the Add Item Page</h2>
         <h5>:</h5><input type="text" name="keyword" ref="keyword" size="50"/><br/>
         <button name="button" onClick={this.onButtonClick.bind(this)}>Search for Gifts</button>
       </div>
+      <WishListBox/>
+     </div> 
       );
   }
 })

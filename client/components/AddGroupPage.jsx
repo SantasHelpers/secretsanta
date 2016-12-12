@@ -18,9 +18,14 @@ var AddGroupPage = observer(class AddGroupPage extends React.Component {
     e.preventDefault();
     
     var data = {
-      group: this.refs.group.value,
-      username: santaStore.username
+      username: santaStore.username,
+      group: {
+        name: this.refs.group.value,
+        summary: this.refs.summary.value
+      }
     };
+
+    console.log(this.refs.summary.value);
 
     axios.post('/api/groups', {
         data: data
@@ -39,6 +44,8 @@ var AddGroupPage = observer(class AddGroupPage extends React.Component {
       <div>
         <h2>This is the Add Group Page</h2>
         <h5>Group:</h5><input type="text" name="group" ref="group" size="50"/><br/>
+        <h5>Tell us about your Group</h5> <br/>
+        <textarea type="text" name="summary" ref="summary" rows="50" cols="25"/> <br/>
         <button name="button" onClick={this.onButtonClick.bind(this)}>Add Group</button>
       </div>
       );

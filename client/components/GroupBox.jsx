@@ -30,7 +30,7 @@ var GroupBox = observer(class GroupBox extends React.Component { //ES6 class
         <ul>
           <li><Link to="addgroup">Add Group</Link></li> 
           <li><Link to="adduser">Add User</Link></li> 
-          <li><Link to="adduser">Add Item</Link></li> 
+          <li><Link to="additem">Add Item</Link></li> 
         </ul>
         </ButtonToolbar>
 
