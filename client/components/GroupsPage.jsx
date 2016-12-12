@@ -12,7 +12,7 @@ import santaStore from './SantaStore';
   
   constructor (props) {
     super (props);
-    this.onButtonClick = this.onButtonClick.bind(this);
+   // this.onButtonClick = this.onButtonClick.bind(this);
   }
 
   componentWillMount() {
@@ -38,6 +38,7 @@ import santaStore from './SantaStore';
     return (
       <div>
         <h2>This is the Groups Page</h2>
+        <p> {this.props.params.group}</p>
       </div>
       );
   }
