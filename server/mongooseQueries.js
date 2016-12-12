@@ -50,6 +50,17 @@ var getAllUsers = function(req, res) {
       res.send(user);
     });
 };
+var getGroupsByUser = function(req, res) {
+  console.log('getgroupsbyuserdata',req.body);
+  User.find(req.body.data).then(function(err, user) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log('sendinggroupsbyuser');
+      res.send(user.groups);
+    }
+  });
+}
 
 var addUser = function(req, res) {
   console.log(req.body.data);
@@ -63,17 +74,19 @@ var addUser = function(req, res) {
   });
 }
 var addGroup = function(req, res) {
-  console.log(req.body);
-  Group.create(req.body, function(err, success) {
+  console.log(req.body.data);
+  Group.create(req.body.data.group, function(err, success) {
     if (err) {
       console.log(err);
     } else {
-      console.log('added new grouop');
+      console.log('added new group');
     }
   });
 }
 module.exports.addUser = addUser;
 module.exports.addGroup = addGroup;
+module.exports.getAllUsers = getAllUsers;
+module.exports.getGroupsByUser = getGroupsByUser;
 
 //////TEST QUERIES//////
 // findUserByUsername('Johnson');

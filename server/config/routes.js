@@ -5,30 +5,30 @@ var controller = require('../mongooseQueries.js');
 
 var amazonsearch = function(req, res, next) {
   console.log('GET');
-  var keyword = req.data;
-  amazon(keyword, function(result) {
+var data = JSON.parse(req.query.data);
+  // console.log('amazonsearchkeyword', keyword);
+  amazon(data.keyword, function(result) {
 
     res.status(200).send(result);
   })
 };
 
 /////////////////////////// ENDPOINTS
-router.route('/api/amazonsearch').get(amazonsearch); //input keyword output searchResults
+router.route('/api/amazon').get(amazonsearch); //input keyword output searchResults
+
 //USER
 router.route('/api/users')
 //GET ALL USERS
-.get()
+.get(controller.getAllUsers)
 //add user
 .post(controller.addUser)
 
-
 //PARTY
-router.route('/api/party')
+router.route('/api/groups')
 //getPartyByUser input: user , output parties
-.get()
+.get(controller.getGroupsByUser)
 //add a new group
-.post();
-
+.post(controller.addGroup);
 
 //ITEM
 router.route('/api/item')

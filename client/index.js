@@ -26,16 +26,27 @@ import AddUserPage from './components/AddUserPage.jsx'
 //     console.log(error);
 //   });
 
-  axios.post('/api/users', {
-    data: {username:'username1',
-    name:'user1'}
-})
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
+//   axios.post('/api/users', {
+//     data: {username:'username1',
+//     name:'user1'}
+// })
+//   .then(function (response) {
+//     console.log(response);
+//   })
+//   .catch(function (error) {
+//     console.log(error);
+//   });
+  // axios.get('/api/groups', {
+  //     params: {
+  //     data: {username:'test'}
+  //   }
+  // })
+  // .then(function (response) {
+  //   console.log(response);
+  // })
+  // .catch(function (error) {
+  //   console.log(error);
+  // });
 
 ReactDOM.render(
   <Router history={hashHistory}>
