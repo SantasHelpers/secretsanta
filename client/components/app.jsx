@@ -14,7 +14,7 @@ var App = observer(class App extends React.Component {
     super (props);
 
     this.handleClick = this.handleClick.bind(this);
-  } //^ clickhandler, instansiate inside the constructor, and bind it to the context of this
+  } 
 
   handleClick () {
     console.log('nice you clicked the page')
@@ -35,5 +35,3 @@ var App = observer(class App extends React.Component {
 
 export default App;
 
-// <PendingBox PendingBoxItems={[{avatar: 'avatar1'}, {avatar: 'avatar2'}]} />
-// <WishListBox/>

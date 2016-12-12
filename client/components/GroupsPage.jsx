@@ -16,11 +16,7 @@ import santaStore from './SantaStore';
   }
 
   componentWillReceiveProps() {
-    // make the AJAX call here to get list of users, members, group name and group summary
-
-    console.log(this.props);
     var selectedGroup = this.props.params.group;
-    console.log('selected Group: ', this.props.params.group);
 
     santaStore.groupData.forEach((group, index) =>{
       if (group.name === selectedGroup){
@@ -34,14 +30,8 @@ import santaStore from './SantaStore';
   render() {
 
     var current = santaStore.currentGroup;
-    console.log('this is current: ', current);
-
     var group = santaStore.groupData[current];
     var sliced = group.users.slice();
-
-    console.log('group Name: ', group.name);
-    console.log('summary :', group.summary);
-    console.log('summary :', sliced);
 
     return (
       <div>

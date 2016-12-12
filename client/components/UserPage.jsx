@@ -10,8 +10,8 @@ export default class UserPage extends React.Component {
 
     return (
       <div>
-        <PendingBox PendingBoxItems={[{avatar: 'avatar1'}, {avatar: 'avatar2'}]} />
-        <WishListBox/>
+        <PendingBox />
+        <WishListBox />
       </div>
       );
   }
