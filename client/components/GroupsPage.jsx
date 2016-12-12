@@ -1,5 +1,5 @@
 // GroupsPage.jsx
-
+import { ListGroup, ListGroupItem }  from 'react-bootstrap';
 import React from 'react';
 import axios from 'axios'
 import { observer } from 'mobx-react';
@@ -12,35 +12,54 @@ import santaStore from './SantaStore';
   
   constructor (props) {
     super (props);
-    this.onButtonClick = this.onButtonClick.bind(this);
+
   }
 
-  componentWillMount() {
+  componentWillReceiveProps() {
     // make the AJAX call here to get list of users, members, group name and group summary
 
     console.log(this.props);
+    var selectedGroup = this.props.params.group;
+    console.log('selected Group: ', this.props.params.group);
 
-    // get the group name thru params
-    // axios.post('/api/party', {
-    //     username: santaStore.currentUser
-    // })
-    // .then(function (response) {
-    //   console.log(response);
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    // });
+    santaStore.groupData.forEach((group, index) =>{
+      if (group.name === selectedGroup){
+        console.log('found it : ', index);
+        santaStore.currentGroup = index;
+      }
+    })
 
   }
 
   render() {
 
+    var current = santaStore.currentGroup;
+    console.log('this is current: ', current);
+
+    var group = santaStore.groupData[current];
+    var sliced = group.users.slice();
+
+    console.log('group Name: ', group.name);
+    console.log('summary :', group.summary);
+    console.log('summary :', sliced);
+
     return (
       <div>
-        <h2>This is the Groups Page</h2>
+        <h2>This is the {group.name} Page</h2>
+
+        <p>{group.summary}</p>
+
+          <ListGroup>
+            {
+             sliced.map((user, index) =>
+                <ListGroupItem user={user} key={index}>{user}</ListGroupItem>
+              )
+            }
+          </ListGroup>
       </div>
       );
   }
 })
+
 
 export default GroupPage;

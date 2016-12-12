@@ -13,9 +13,6 @@ var App = observer(class App extends React.Component {
   constructor (props) {
     super (props);
 
-    this.state = {
-
-    };
     this.handleClick = this.handleClick.bind(this);
   } //^ clickhandler, instansiate inside the constructor, and bind it to the context of this
 
