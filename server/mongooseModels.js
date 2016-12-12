@@ -18,7 +18,7 @@ var itemSchema = mongoose.Schema({
   URL: String,
   price: Number,
   category: String,
-  claimed:Boolean
+  claimed: Boolean
 });
 
 var groupSchema = mongoose.Schema({
@@ -30,8 +30,6 @@ var groupSchema = mongoose.Schema({
   summary: String,
   imageURL: String,
   users: [String],
-  matchusername: String,
-  completed: Boolean
 });
 
 var userSchema = mongoose.Schema({
@@ -41,8 +39,10 @@ var userSchema = mongoose.Schema({
     unique: true
   },
   name: String,
-  groups: [groupSchema],
+  groups: [String],
   items: [itemSchema],
+  pendingGroups: [String],
+  matches: [Object]
 });
 
 var Item = mongoose.model('Item', itemSchema);
