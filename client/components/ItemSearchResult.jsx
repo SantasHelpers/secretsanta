@@ -31,7 +31,7 @@ var ItemSearchResult = observer(class ItemSearchResult extends React.Component {
           <div className="ItemSearchPrice">
             {this.props.item.price}
           </div>
-          <Button block onClick={this.addItem}> Add To Wishlist</Button>
+          <Button onClick={this.addItem}> Add To Wishlist</Button>
         </ListGroupItem>
       );
   }
