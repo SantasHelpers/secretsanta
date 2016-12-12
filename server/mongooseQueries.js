@@ -30,7 +30,7 @@ var getUser = function(req, res) {
 };
 
 var getWishlistByUser = function(req, res) {
-  findUserByUsername(req.body.username, function(user) {
+  findUserByUsername(req.body.data, function(user) {
     res.send(user.items);
   });
 };
@@ -51,7 +51,7 @@ var getAllUsers = function(req, res) {
     });
 };
 var getGroupsByUser = function(req, res) {
-  console.log('getgroupsbyuserdata',req.body);
+  console.log('getgroupsbyuserdata', req.body);
   User.find(req.body.data).then(function(err, user) {
     if (err) {
       console.log(err);
@@ -60,7 +60,8 @@ var getGroupsByUser = function(req, res) {
       res.send(user.groups);
     }
   });
-}
+};
+
 
 var addUser = function(req, res) {
   console.log(req.body.data);
@@ -72,7 +73,8 @@ var addUser = function(req, res) {
       console.log('added new user');
     }
   });
-}
+};
+
 var addGroup = function(req, res) {
   console.log(req.body.data);
   Group.create(req.body.data.group, function(err, success) {
@@ -82,11 +84,33 @@ var addGroup = function(req, res) {
       console.log('added new group');
     }
   });
+};
+
+var addItemToWishList = function(req, res) {
+  console.log(req.body.data);
+  User.findOne(req.body.data.user).then(function(err, success) {
+    if (err) {
+      console.log(err);
+    } else {
+      User.items.push(req.body.data.item);
+      User.save(function(err, updatedUser) {
+        if (err) {
+          console.log(err);
+        } else {
+          res.send(updatedUser);
+        }
+      });
+    }
+  });
 }
+
 module.exports.addUser = addUser;
 module.exports.addGroup = addGroup;
 module.exports.getAllUsers = getAllUsers;
 module.exports.getGroupsByUser = getGroupsByUser;
+module.exports.addItemToWishList = addItemToWishList;
+module.exports.getWishlistByUser = getWishlistByUser; //
+//all members
 
 //////TEST QUERIES//////
 // findUserByUsername('Johnson');
@@ -127,20 +151,3 @@ module.exports.getGroupsByUser = getGroupsByUser;
 //   console.log('successfully saved ', user.get('username'));
 // });
 //////////////////////////////////////////////////////////////////
-
-
-// app.get('/api/user/wishList');  // FEED USER GET ITEMLIST
-
-// app.get('/api/user/party',);    // FEED USER GET PARTYLIST
-
-// app.get('/api/user/pending');   // FEED USER GET PENDING LIST
-
-// app.get('/api/party',)          // FEED USER PARTY GET (USERLIST, INFO), TARGET
-
-// app.get('/api/user',);          // GET ALL USERS TO SELECT WHO TO ADD TO GROUP
-
-// app.post('/api/item/claim',);   // FEED ITEM AND USER TO CHANGE STATUS CLAIMED
-
-// app.post('/api/item/add',);     // FEED ITEM AND USER TO SAVE TO DB
-
-// app.post('/api/user/add',);     // FEED USER TO ADD TO USERLIST
