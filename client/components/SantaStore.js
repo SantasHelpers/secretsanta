@@ -1,20 +1,20 @@
 // MOBX store
 // SantaStore.js
 import { autorun, extendObservable } from 'mobx';
-import data from '../appData';
-import groupData from '../../fakeGroupData';
+//import data from '../appData';
+//import groupData from '../../fakeGroupData';
 
 class SantaStore {
 
   constructor () {
     extendObservable(this, {
-      wishListData: data,
-      groupData: groupData,
+      wishListData: [],
+      groupData: [],
       pendingList: [],
       currentUser: 'Phil',
-      currentGroup: 0,
+      currentGroup: 0 ,
       itemSearchData: [],
-      allUsers: null
+      allUsers: []
     })
 
   }
