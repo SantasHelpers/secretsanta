@@ -21,23 +21,25 @@ router.route('/api/users')
 //GET ALL USERS
 .get(controller.getAllUsers)
 //add user
-.post(controller.addUser)
+.post(controller.addUser);
 
 //PARTY
 router.route('/api/groups')
 //getPartyByUser input: user , output parties
 .get(controller.getGroupsByUser)
 //add a new group
-.post(controller.addGroup);
+.post(controller.addGroup)
+//add user to group
+.put(); //input user and group, add user to group
 
 //ITEM
 router.route('/api/item')
 //getWishListByUser : input user, output wishList
-.get()
+.get(controller.getWishlistByUser)
 //add to user's wishList : input user , item
-.post()
-//change status to claimed :
-.put()
+.post(controller.addItemToWishList)
+//change status to claimed : TODO for legacy.
+.put();
 
 //TARGET INFO
 router.route('/api/target')
@@ -46,5 +48,3 @@ router.route('/api/target')
 
 
 module.exports = router;
-
-
