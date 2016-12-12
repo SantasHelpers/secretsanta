@@ -164,6 +164,7 @@ module.exports.getGroupsByUser = getGroupsByUser;
 module.exports.addItemToWishList = addItemToWishList;
 module.exports.getWishlistByUser = getWishlistByUser;
 module.exports.setRandomTargets = setRandomTargets;
+module.exports.getUser = getUser;
 
 //////TEST QUERIES////// Use these as examples
 // findUserByUsername('Johnson');
