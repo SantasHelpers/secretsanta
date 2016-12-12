@@ -11,7 +11,7 @@ class SantaStore {
       wishListData: data,
       groupData: groupData,
       currentUser: 'Bob',
-      groupName: '',
+      currentGroup: 0,
       itemSearchData: [],
     })
 
