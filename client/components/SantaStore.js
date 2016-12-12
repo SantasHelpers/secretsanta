@@ -10,7 +10,8 @@ class SantaStore {
     extendObservable(this, {
       wishListData: data,
       groupData: groupData,
-      currentUser: 'Bob'
+      currentUser: 'Bob',
+      groupName: '',
     })
 
   }

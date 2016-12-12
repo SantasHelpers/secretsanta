@@ -21,10 +21,14 @@ var GroupItem = observer(class GroupItem extends React.Component {
 
   render () {
     return (
-      <ListGroupItem header={this.props.group.name} onClick={this.handleClick}>
+      <div>
+      { /* <Link to={group/:this.props.group.name}> */}
+       <ListGroupItem header={this.props.group.name} onClick={this.handleClick}>
         <img className="GroupAvatar" src={this.props.group.imageUrl} />
         <div className="GroupDescription">{this.props.group.summary} </div>
-      </ListGroupItem>
+       </ListGroupItem>
+       {/*/Link> */}
+      </div>
       );
   }
 

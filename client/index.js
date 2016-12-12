@@ -49,7 +49,7 @@ ReactDOM.render(
   <Router history={hashHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={UserPage}></IndexRoute>
-        <Route path="groups" name="groups" component={GroupsPage}></Route>
+        <Route path="groups/:group" name="groups" component={GroupsPage}></Route>
         <Route path="addgroup" name="addgroup" component={AddGroupPage}></Route>
         <Route path="additem" name="additem" component={AddItemPage}></Route>
         <Route path="adduser" name="adduser" component={AddUserPage}></Route>
