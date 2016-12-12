@@ -1,6 +1,7 @@
 var app = require('../server.js');
 var amazon = require('./amazonapi');
 var router = require('express').Router();
+var controller = require('../mongooseQueries.js');
 
 var amazonsearch = function(req, res, next) {
   console.log('GET');
@@ -18,7 +19,7 @@ router.route('/api/users')
 //GET ALL USERS
 .get()
 //add user
-.post()
+.post(controller.addUser)
 
 
 //PARTY

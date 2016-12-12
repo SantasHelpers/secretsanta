@@ -52,15 +52,18 @@ var getAllUsers = function(req, res) {
 };
 
 var addUser = function(req, res) {
-  User.create(req.body, function(err, success) {
+  console.log(req.body.data);
+  User.create(req.body.data, function(err, success) {
     if (err) {
       console.log(err);
     } else {
+      console.log(success);
       console.log('added new user');
     }
   });
 }
 var addGroup = function(req, res) {
+  console.log(req.body);
   Group.create(req.body, function(err, success) {
     if (err) {
       console.log(err);
@@ -70,6 +73,7 @@ var addGroup = function(req, res) {
   });
 }
 module.exports.addUser = addUser;
+module.exports.addGroup = addGroup;
 
 //////TEST QUERIES//////
 // findUserByUsername('Johnson');

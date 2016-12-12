@@ -14,10 +14,21 @@ import AddGroupPage from './components/AddGroupPage.jsx'
 import AddItemPage from './components/AddItemPage.jsx'
 import AddUserPage from './components/AddUserPage.jsx'
 
-axios.get('/api/amazonsearch', {
-  params: {
-    data:'coffee'
-  }
+// axios.get('/api/amazonsearch', {
+//   params: {
+//     data:'coffee'
+//   }
+// })
+//   .then(function (response) {
+//     console.log(response);
+//   })
+//   .catch(function (error) {
+//     console.log(error);
+//   });
+
+  axios.post('/api/users', {
+    data: {username:'username1',
+    name:'user1'}
 })
   .then(function (response) {
     console.log(response);
