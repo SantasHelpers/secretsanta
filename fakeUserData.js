@@ -1,5 +1,5 @@
 var fakeUserData = [{
-  username: 'phil'
+  username: 'phil',
   name: 'Phil',
   groups: ['HR50'],
   items: [{
@@ -58,7 +58,7 @@ var fakeUserData = [{
     category: 'Raindeer'
   }],
 }, {
-  username: 'tyl'
+  username: 'tyl',
   name: 'Tyler',
   groups: ['HR50'],
   items: [{
@@ -93,7 +93,7 @@ var fakeUserData = [{
     category: 'Santa'
   }]
 }, {
-  username: 'cha'
+  username: 'cha',
   name: 'Chan',
   groups: ['HR50'],
   items: [{
@@ -134,7 +134,7 @@ var fakeUserData = [{
     category: 'Santa'
   }]
 }, {
-  username: 'joos'
+  username: 'joos',
   name: 'Joosang',
   groups: ['HR50'],
   items: [{
@@ -180,4 +180,6 @@ var fakeUserData = [{
     URL: 'https://www.amazon.com/TOMOKO-Mechanical-Keyboard-Water-Resistant-Anti-ghosting/dp/B01DBJTZU2%3FSubscriptionId%3DAKIAIPLG2QYEQ7BELB7A%26tag%3Djslee-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB01DBJTZU2',
     category: 'Santa'
   }]
-}]
+}];
+
+module.exports = fakeUserData;
