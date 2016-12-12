@@ -12,6 +12,7 @@ class SantaStore {
       groupData: groupData,
       currentUser: 'Bob',
       groupName: '',
+      itemSearchData: [],
     })
 
   }
