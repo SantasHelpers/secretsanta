@@ -5,6 +5,7 @@ import axios from 'axios';
 import { observer } from 'mobx-react';
 import santaStore from './SantaStore';
 
+
 // not sure if need MOBX here,  will hold off
 
 var AddItemPage = observer(class AddItemPage extends React.Component {
@@ -19,8 +20,10 @@ var AddItemPage = observer(class AddItemPage extends React.Component {
     
     var data = {
       keyword: this.refs.keyword.value,
-      username: santaStore.username
+      username: santaStore.currentUser
     };
+
+    console.log(santaStore.currentUser);
 
     axios.post('/api/item', {
         data: data
@@ -42,7 +45,6 @@ var AddItemPage = observer(class AddItemPage extends React.Component {
         <h5>:</h5><input type="text" name="keyword" ref="keyword" size="50"/><br/>
         <button name="button" onClick={this.onButtonClick.bind(this)}>Search for Gifts</button>
       </div>
-      <WishListBox/>
      </div> 
       );
   }

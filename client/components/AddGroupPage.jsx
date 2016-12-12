@@ -18,7 +18,7 @@ var AddGroupPage = observer(class AddGroupPage extends React.Component {
     e.preventDefault();
     
     var data = {
-      username: santaStore.username,
+      username: santaStore.currentUser,
       group: {
         name: this.refs.group.value,
         summary: this.refs.summary.value
