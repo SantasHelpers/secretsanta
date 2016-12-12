@@ -34,7 +34,7 @@ var AddItemPage = observer(class AddItemPage extends React.Component {
       }
     })
     .then(function (response) {
-      santaStore.itemSearchArray = [];
+      santaStore.itemSearchData = [];
       response.data.forEach( (item, index) => (santaStore.itemSearchData.push(item) ) )
     })
     .catch(function (error) {
