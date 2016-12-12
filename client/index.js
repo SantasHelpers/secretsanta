@@ -14,6 +14,19 @@ import AddGroupPage from './components/AddGroupPage.jsx'
 import AddItemPage from './components/AddItemPage.jsx'
 import AddUserPage from './components/AddUserPage.jsx'
 
+// axios.get('/api/groups', {
+//   params:{
+//     data:{username:'phil'}
+//        }
+//       }
+//     )
+//     .then(function(response) {
+//       console.log(response);
+//     })
+//     .catch(function(error) {
+//       console.log(error);
+//     });
+
 
 ReactDOM.render(
   <Router history={hashHistory}>

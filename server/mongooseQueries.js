@@ -8,16 +8,16 @@ var Item = models.Item;
 // Helpers
 var findUserByUsername = function(passedUsername, cb) {
   User.findOne({ username: passedUsername })
-  .then(function(user) {
-    cb(user);
-  });
+    .then(function(user) {
+      cb(user);
+    });
 };
 
 var findGroupByName = function(passedGroupName, cb) {
-  Group.findOne({name: passedGroupName })
-  .then(function(group) {
-    cb(group);
-  });
+  Group.findOne({ name: passedGroupName })
+    .then(function(group) {
+      cb(group);
+    });
 };
 
 // Controllers
@@ -28,7 +28,7 @@ var getUser = function(req, res) {
 };
 
 var getWishlistByUser = function(req, res) {
-  findUserByUsername(req.body.data, function(user) {
+  findUserByUsername(JSON.parse(req.body.data), function(user) {
     res.send(user.items);
   });
 };
@@ -50,14 +50,20 @@ var getAllUsers = function(req, res) {
 };
 
 var getGroupsByUser = function(req, res) {
-  // var passedUsername = req.body.data.username;
-  console.log(req.params);
+  console.log('!!!!!!!!!!!!!!!!', JSON.parse(req.query.data).username);
+  var passedUsername = JSON.parse(req.query.data).username;
   findUserByUsername(passedUsername, function(user) {
-    Group.find({'_id':
-      {$in: user.get('groups')}
+    // console.log('user', user);
+    Group.find({
+      'name': { $in: user.get('groups') }
     }, function(err, data) {
-      console.log(err, data);
-      res.send(data);
+      if (err) {
+        console.log('finderror !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+        console.log(err);
+      } else {
+        console.log(data);
+        res.send(data);
+      }
     });
   });
 };
@@ -115,19 +121,14 @@ var addUserToGroup = function(req, res) {
   var groupToAdd = req.body.data.groupname;
   var userToAdd = req.body.data.username;
   console.log('adding user: ' + userToAdd + ' to group: ' + groupToAdd);
-  models.Group.findOneAndUpdate({name: groupToAdd},
-    {$push: {users: userToAdd}}, function(err, data) {
-      console.log(err, data);
-    }
-  );
-  models.Group.findOne({name: groupToAdd})
-  .then(function(foundGroup) {
-    console.log(foundGroup);
-    models.User.findOneAndUpdate({username: userToAdd},
-      {$push: {groups: foundGroup.get('_id')}}, function(err, data) {
-      }
-    );
+  models.Group.findOneAndUpdate({ name: groupToAdd }, { $push: { users: userToAdd } }, function(err, data) {
+    console.log(err, data);
   });
+  models.Group.findOne({ name: groupToAdd })
+    .then(function(foundGroup) {
+      console.log(foundGroup);
+      models.User.findOneAndUpdate({ username: userToAdd }, { $push: { groups: foundGroup.get('_id') } }, function(err, data) {});
+    });
 };
 
 var setRandomTargets = function(req, res) {
@@ -148,11 +149,9 @@ var setRandomTargets = function(req, res) {
       results.push(target);
     }
     console.log('RESULTS = ', results);
-    models.Group.findOneAndUpdate({name: passedGroupName},
-      {$set: {targets: results}}, function(err, data) {
-        console.log(err, data);
-      }
-    );
+    models.Group.findOneAndUpdate({ name: passedGroupName }, { $set: { targets: results } }, function(err, data) {
+      console.log(err, data);
+    });
   });
 };
 
@@ -172,7 +171,7 @@ module.exports.getUser = getUser;
 // getWishlistByUser({body: {username: 'Juli'}}, {});
 // getGroupMemberList({body: {data: {groupname: 'TESTGROUP'}}}, {});
 // getAllUsers();
-getGroupsByUser({body: {data: {username: 'Juli'}}}, {});
+// getGroupsByUser({body: {data: {username: 'Juli'}}}, {});
 // deleteItemFromUserWishlist({body: {username: 'Juli', deleteitem: 'test item'}});
 // addUserToGroup({body: {data: {username: 'Johnson', groupname: 'hr50' }}}, {});
 // addUserToGroup({body: {data: {username: 'Johnson', groupname: 'TESTGROUP' }}}, {});
