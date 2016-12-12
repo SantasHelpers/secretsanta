@@ -36,12 +36,22 @@ import AddUserPage from './components/AddUserPage.jsx'
 //   .catch(function (error) {
 //     console.log(error);
 //   });
-  axios.get('/api/users', {
+axios.post('/api/item', {
+    data: {
+      user:{username:'123'},
+      item: {
+        name: 'Cards Against Humanity',
+        price: 25,
+        imageURL: 'http://ecx.images-amazon.com/images/I/41pnVOenwNL._SL160_.jpg',
+        URL: 'https://www.amazon.com/Cards-Against-Humanity-LLC-CAHUS/dp/B004S8F7QM%3FSubscriptionId%3DAKIAIPLG2QYEQ7BELB7A%26tag%3Djslee-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB004S8F7QM',
+        category: 'Raindeer'
+      }
+    }
   })
-  .then(function (response) {
+  .then(function(response) {
     console.log(response);
   })
-  .catch(function (error) {
+  .catch(function(error) {
     console.log(error);
   });
 
