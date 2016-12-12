@@ -11,8 +11,7 @@ db.once('open', function() {
 var itemSchema = mongoose.Schema({
   name: {
     type: String,
-    index: true,
-    unique: true
+    index: true
   },
   imageURL: String,
   URL: String,
@@ -24,8 +23,7 @@ var itemSchema = mongoose.Schema({
 var groupSchema = mongoose.Schema({
   name: {
     type: String,
-    index: true,
-    unique: true
+    index: true
   },
   summary: String,
   imageURL: String,
