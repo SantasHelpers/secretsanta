@@ -17,6 +17,7 @@ var itemSchema = mongoose.Schema({
   URL: String,
   price: Number,
   category: String,
+  claimed:Boolean
 });
 
 var groupSchema = mongoose.Schema({

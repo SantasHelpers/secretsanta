@@ -29,6 +29,8 @@ var WishListBox = observer(class WishListBox extends React.Component {
           {
            santaStore.wishListData.map((item, index) =>
               <WishListItem item={item} key={index} />
+              // maybe wrap this in a Div and put click handler on it to add ti list?  other
+              // wise we may have to rebuild a new wish list item
               )
           }
         </ListGroup>
