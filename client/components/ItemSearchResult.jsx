@@ -7,7 +7,6 @@ var ItemSearchResult = observer(class ItemSearchResult extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
     };
     this.handleClick = this.handleClick.bind(this);
     this.addItem = this.addItem.bind(this);
@@ -19,7 +18,25 @@ var ItemSearchResult = observer(class ItemSearchResult extends React.Component {
   }
 
   addItem() {
-    //this will send post request to server
+    axios.post('/api/item', {
+      data: {
+        user:{username: this.refs.username.value},
+        item: {
+          name: this.props.item.name,
+          price: this.props.item.price,
+          imageURL: this.props.item.imageUrl,
+          URL: this.props.item.URL,
+          category: this.props.item.category
+        }
+      }
+    })
+    .then(function(response) {
+      console.log(response);
+    })
+    .catch(function(error) {
+      console.log(error);
+//   });
+    });
   }
 
   render () {
@@ -31,7 +48,10 @@ var ItemSearchResult = observer(class ItemSearchResult extends React.Component {
           <div className="ItemSearchPrice">
             {this.props.item.price}
           </div>
-          <Button block onClick={this.addItem}> Add To Wishlist</Button>
+          <div className="ItemSearchCategory">
+            {this.props.item.category}
+            </div>
+          <Button onClick={this.addItem}> Add To Wishlist</Button>
         </ListGroupItem>
       );
   }

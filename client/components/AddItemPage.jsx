@@ -4,7 +4,6 @@ import React from 'react';
 import axios from 'axios';
 import { observer } from 'mobx-react';
 import santaStore from './SantaStore';
-import WishListBox from './WishListBox';
 import ItemSearchBox from './ItemSearchBox';
 
 
@@ -34,7 +33,7 @@ var AddItemPage = observer(class AddItemPage extends React.Component {
       }
     })
     .then(function (response) {
-      santaStore.itemSearchArray = [];
+      santaStore.itemSearchData = [];
       response.data.forEach( (item, index) => (santaStore.itemSearchData.push(item) ) )
     })
     .catch(function (error) {
