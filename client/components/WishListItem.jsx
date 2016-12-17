@@ -4,30 +4,21 @@ import { observer } from 'mobx-react';
 import santaStore from './SantaStore';
 
 var WishListItem = observer(class WishListItem extends React.Component {
+  
   constructor(props) {
     super(props);
-    this.state = {
-
-    };
-    this.handleClick = this.handleClick.bind(this);
   }
-
-  handleClick() {
-
-    // REDIRECT TO this.props.item.URL
-    console.log('this will redirect to the item page on amazon');
-  }
-
 
   render () {
     return (
-        <ListGroupItem onClick={this.handleClick}>
+        <ListGroupItem> <a href={this.props.item.URL} target="_blank">
           <img className="WishListImage" src={this.props.item.imageURL} />
           <div className="WishListTitle">
             {this.props.item.name}</div>
           <div className="WishListPrice">
             {this.props.item.price}
           </div>
+          </a>
         </ListGroupItem>
     );
   }

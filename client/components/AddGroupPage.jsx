@@ -21,17 +21,21 @@ var AddGroupPage = observer(class AddGroupPage extends React.Component {
       username: santaStore.currentUser,
       group: {
         name: this.refs.group.value,
-        summary: this.refs.summary.value
+        summary: this.refs.summary.value,
+        imageURL: '',
+        users:[],
+        targets:[]
       }
     };
 
-    console.log(this.refs.summary.value);
+
 
     axios.post('/api/groups', {
       data: data
     })
     .then(function (response) {
       console.log(response);
+      santaStore.groupData.push(data)
     })
     .catch(function (error) {
       console.log(error);

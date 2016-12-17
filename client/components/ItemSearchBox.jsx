@@ -2,7 +2,8 @@ import { ListGroup, ListGroupItem, Nav, NavItem, Grid, Row, Col, Thumbnail, Butt
 import React from 'react';
 import ItemSearchResult from './ItemSearchResult.jsx';
 import { observer } from 'mobx-react';
-import santaStore from './SantaStore';
+import santaStore from './SantaStore'
+import { IndexLink } from 'react-router';
 
 var ItemSearchBox = observer(class ItemSearchBox extends React.Component {
 
@@ -10,22 +11,14 @@ var ItemSearchBox = observer(class ItemSearchBox extends React.Component {
     super(props);
     this.state = {
     };
-    this.handleClick = this.handleClick.bind(this);
-    this.returnToWishList = this.returnToWishList.bind(this);
-  }
-
-  handleClick () {
-
-  }
-
-  returnToWishList () {
-    //will render currentwish list
   }
 
   render () {
     return (
-        <div id = 'ItemSearchBox'>
-          <Button block onClick={this.returnToWishList}>View Your Wishlist </Button>
+        <div id ='ItemSearchBox'>
+          <IndexLink to="/">
+            <Button bsStyle="info" bsSize="large"  block>View Your Wishlist</Button> 
+          </IndexLink>
           <ListGroup>
             {
              santaStore.itemSearchData.map((item, index) =>

@@ -12,7 +12,7 @@ var GroupPage = observer(class GroupsPage extends React.Component {
 
   constructor (props) {
     super (props);
-
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentWillReceiveProps() {
@@ -36,21 +36,27 @@ var GroupPage = observer(class GroupsPage extends React.Component {
       .catch(function (error) {
         console.log('error getting all users', error);
       });
+  }
 
+  handleClick (user) {
+    console.log(user);
+    console.log('handle click username : ', user)
+    santaStore.groupData[santaStore.currentGroup].users.push(user);
   }
 
   render() {
 
     var current = santaStore.currentGroup;
     var group = santaStore.groupData[current];
-    var sliced = group.users.slice();
-    var listOfUsers = santaStore.allUsers.slice();
-    // var listOfUsers = JSON.parse(JSON.stringify(santaStore.allUsers.slice()));
-    console.log('group Name: ', group.name);
-    console.log('summary :', group.summary);
-    console.log('groupUsers :', sliced);
-    console.log('listOfUsers: ', listOfUsers);
+    var sliced = group.users.slice(); // members of the group
+    var listOfUsers = santaStore.allUsers.slice(); // all users on the system
+    var availableUsers = [];
 
+    listOfUsers.map((user, index) => {
+      if (sliced.indexOf(user) === -1){
+        availableUsers.push(user);
+      }
+    });
 
     return (
       <div>
@@ -68,8 +74,8 @@ var GroupPage = observer(class GroupsPage extends React.Component {
           </ListGroup>
           <ListGroup>
             {
-              listOfUsers.map((alluser, index) =>
-                  <ListGroupItem alluser={alluser.username} key={index}> {alluser}</ListGroupItem>
+              availableUsers.map((alluser, index) =>
+                  <ListGroupItem onClick={this.handleClick.bind(this, alluser)} ref={alluser} key={index}> {alluser}</ListGroupItem>
                   // clicking above should add user to group
                 )
             }
