@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack -d --watch",
     "build": "webpack",
-    "babel": "babel ./client --out-dir compiled --presets=es2015,react --ignore=node_modules,compiled,server --source-maps inline --watch"
+    "babel": "babel ./client --out-dir compiled --presets=es2015,react --ignore=node_modules,compiled,server --source-maps inline --watch",
+    "start": "nodemon server/server.js"
   },
   "repository": {
     "type": "git",

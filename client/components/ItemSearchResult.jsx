@@ -32,7 +32,7 @@ var ItemSearchResult = observer(class ItemSearchResult extends React.Component {
       }
     })
     .then(function(response) {
-      console.log(response);
+      console.log('added item', response);
     })
     .catch(function(error) {
       console.log(error);

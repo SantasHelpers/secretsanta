@@ -16,16 +16,16 @@ var App = observer(class App extends React.Component {
     this.handleClick = this.handleClick.bind(this);
 
     // GET Groups user is a member of
-    axios.get('/api/groups', {
-        params: {data: {username: 'Phil'}}
-    })
-    .then(function (response) {
-     console.log('groups for phil:', response);
-      santaStore.groupData = response;
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    // axios.get('/api/groups', {
+    //     params: {data: {username: 'phil'}}
+    // })
+    // .then(function (response) {
+    //  console.log('groups for phil:', response);
+    //   santaStore.groupData = response;
+    // })
+    // .catch(function (error) {
+    //   console.log(error);
+    // });
 
     // // GET WishList user is a member of
     // axios.get('/api/item', {
@@ -61,8 +61,21 @@ var App = observer(class App extends React.Component {
     // .catch(function (error) {
     //   console.log(error);
     // });
+  // }
+  }
+  componentWillMount(){
+    axios.get('/api/groups', {
+        params: {data: {username: 'phil'}}
+    })
+    .then(function (response) {
+     console.log('groups for phil:', response.data);
+      santaStore.groupData = response.data;
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 
-  } 
+  }
 
   handleClick () {
     console.log('nice you clicked the page')

@@ -28,7 +28,7 @@ var getUser = function(req, res) {
 };
 
 var getWishlistByUser = function(req, res) {
-  findUserByUsername(JSON.parse(req.body.data), function(user) {
+  findUserByUsername(JSON.parse(req.query.data).username, function(user) {
     res.send(user.items);
   });
 };
@@ -43,17 +43,23 @@ var getGroupMemberList = function(req, res) {
 
 var getAllUsers = function(req, res) {
   User.find({})
-    .then(function(user) {
-      console.log(user);
-      res.send(user);
+    .then(function(users) {
+      console.log('ALLUSERS', users);
+      var results = [];
+      for (var i = 0; i < users.length; i++) {
+        results.push(users[i].name);
+      }
+
+      res.send(results);
     });
 };
-
+// getGroupsByUser({body: {data: {username: 'Juli'}}}, {});
 var getGroupsByUser = function(req, res) {
-  console.log('!!!!!!!!!!!!!!!!', JSON.parse(req.query.data).username);
+  console.log('GET GROUPS BY USER CALLED WITH' , JSON.parse(req.query.data).username);
   var passedUsername = JSON.parse(req.query.data).username;
+  console.log('passed', passedUsername);
   findUserByUsername(passedUsername, function(user) {
-    // console.log('user', user);
+    console.log('user', user);
     Group.find({
       'name': { $in: user.get('groups') }
     }, function(err, data) {
@@ -61,7 +67,7 @@ var getGroupsByUser = function(req, res) {
         console.log('finderror !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
         console.log(err);
       } else {
-        console.log(data);
+        console.log('data to send', data);
         res.send(data);
       }
     });

@@ -26,16 +26,17 @@ import santaStore from './SantaStore';
     })
 
     console.log('allusers prop is ', santaStore.allUsers);
-    if (santaStore.allUsers === null){
+
       axios.get('/api/users')
       .then(function (response) {
-        console.log('successfully got all users', response);
-        santaStore.allUsers = response;
+        console.log('allusers', response.data.slice());
+        santaStore.allUsers = response.data;
+        console.log('successfully got all users', santaStore.allUsers);
       })
       .catch(function (error) {
         console.log('error getting all users', error);
-      })
-    }
+      });
+
   }
 
   render() {
@@ -44,10 +45,12 @@ import santaStore from './SantaStore';
     var group = santaStore.groupData[current];
     var sliced = group.users.slice();
     var listOfUsers = santaStore.allUsers.slice();
+    // var listOfUsers = JSON.parse(JSON.stringify(santaStore.allUsers.slice()));
     console.log('group Name: ', group.name);
     console.log('summary :', group.summary);
-    console.log('summary :', sliced);
-    console.log('list of users :', santaStore.allUsers, listOfUsers);
+    console.log('groupUsers :', sliced);
+    console.log('listOfUsers: ', listOfUsers);
+
 
     return (
       <div>
@@ -59,13 +62,15 @@ import santaStore from './SantaStore';
             {
              sliced.map((user, index) =>
                 <ListGroupItem user={user} key={index}> {user}</ListGroupItem>
+                //Clicking above should go to a page where we render the user's wishlist
               )
             }
           </ListGroup>
           <ListGroup>
             {
-              listOfUsers.map((user, index) =>
-                  <ListGroupItem user={user} key={index} > {user} </ListGroupItem>
+              listOfUsers.map((alluser, index) =>
+                  <ListGroupItem alluser={alluser.username} key={index}> {alluser}</ListGroupItem>
+                  // clicking above should add user to group
                 )
             }
           </ListGroup>
