@@ -15,6 +15,7 @@ var ItemSearchBox = observer(class ItemSearchBox extends React.Component {
   }
 
   handleClick () {
+
   }
 
   returnToWishList () {

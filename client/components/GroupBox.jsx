@@ -28,6 +28,7 @@ var GroupBox = observer(class GroupBox extends React.Component { //ES6 class
       <div id="GroupBox">
         <ButtonToolbar>
         <ul>
+          <li><Link to="tohome">Home</Link></li>
           <li><Link to="addgroup">Add Group</Link></li>
           <li><Link to="adduser">Add User</Link></li>
           <li><Link to="additem">Add Item</Link></li>
