@@ -1,7 +1,7 @@
 // AddUserPage.jsx
 
 import React from 'react';
-import axios from 'axios'
+import axios from 'axios';
 import { observer } from 'mobx-react';
 import santaStore from './SantaStore';
 
@@ -10,7 +10,7 @@ import santaStore from './SantaStore';
 
 var AddUserPage = observer(class AddUserPage extends React.Component {
 
-   constructor (props) {
+  constructor (props) {
     super (props);
     this.onButtonClick = this.onButtonClick.bind(this);
   }
@@ -24,7 +24,7 @@ var AddUserPage = observer(class AddUserPage extends React.Component {
     };
 
     axios.post('/api/users', {
-        data: data
+      data: data
     })
     .then(function (response) {
       console.log(response);
@@ -32,8 +32,7 @@ var AddUserPage = observer(class AddUserPage extends React.Component {
     .catch(function (error) {
       console.log(error);
     });
-
-  };
+  }
 
   render() {
     return (
@@ -43,8 +42,8 @@ var AddUserPage = observer(class AddUserPage extends React.Component {
         <h5>UserName:</h5><input type="text" name="username" ref="username" size="50"/><br/>
         <button name="button" onClick={this.onButtonClick.bind(this)}>Add User</button>
       </div>
-      );
+    );
   }
-})
+});
 
 export default AddUserPage;

@@ -9,7 +9,7 @@ import santaStore from './SantaStore';
 
 var AddGroupPage = observer(class AddGroupPage extends React.Component {
 
-   constructor (props) {
+  constructor (props) {
     super (props);
     this.onButtonClick = this.onButtonClick.bind(this);
   }
@@ -28,7 +28,7 @@ var AddGroupPage = observer(class AddGroupPage extends React.Component {
     console.log(this.refs.summary.value);
 
     axios.post('/api/groups', {
-        data: data
+      data: data
     })
     .then(function (response) {
       console.log(response);
@@ -36,8 +36,7 @@ var AddGroupPage = observer(class AddGroupPage extends React.Component {
     .catch(function (error) {
       console.log(error);
     });
-
-  };
+  }
 
   render() {
     return (
@@ -48,8 +47,8 @@ var AddGroupPage = observer(class AddGroupPage extends React.Component {
         <textarea type="text" name="summary" ref="summary" rows="20" cols="100"/> <br/>
         <button name="button" onClick={this.onButtonClick.bind(this)}>Add Group</button>
       </div>
-      );
+    );
   }
-})
+});
 
 export default AddGroupPage;

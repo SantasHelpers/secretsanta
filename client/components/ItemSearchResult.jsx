@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ListGroupItem, Nav, NavItem, Grid, Row, Col, Thumbnail, Button, ButtonToolbar  }  from 'react-bootstrap';
+import { ListGroupItem, Nav, NavItem, Grid, Row, Col, Thumbnail, Button, ButtonToolbar} from 'react-bootstrap';
 import React from 'react';
 import { observer } from 'mobx-react';
 import santaStore from './SantaStore';
@@ -36,7 +36,6 @@ var ItemSearchResult = observer(class ItemSearchResult extends React.Component {
     })
     .catch(function(error) {
       console.log(error);
-//   });
     });
   }
 
@@ -54,8 +53,8 @@ var ItemSearchResult = observer(class ItemSearchResult extends React.Component {
             </div>
           <Button onClick={this.addItem}> Add To Wishlist</Button>
         </ListGroupItem>
-      );
+    );
   }
-})
+});
 
 export default ItemSearchResult;

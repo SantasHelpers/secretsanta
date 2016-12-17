@@ -13,6 +13,6 @@ export default class UserPage extends React.Component {
         <PendingBox />
         <WishListBox />
       </div>
-      );
+    );
   }
 }

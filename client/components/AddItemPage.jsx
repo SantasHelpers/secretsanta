@@ -11,7 +11,7 @@ import ItemSearchBox from './ItemSearchBox';
 
 var AddItemPage = observer(class AddItemPage extends React.Component {
 
-   constructor (props) {
+  constructor (props) {
     super (props);
     this.onButtonClick = this.onButtonClick.bind(this);
   }
@@ -28,13 +28,13 @@ var AddItemPage = observer(class AddItemPage extends React.Component {
     console.log('the keyword is', this.refs.keyword.value);
 
     axios.get('/api/amazon', {
-      params:{
+      params: {
         data: data
       }
     })
     .then(function (response) {
       santaStore.itemSearchData = [];
-      response.data.forEach( (item, index) => (santaStore.itemSearchData.push(item) ) )
+      response.data.forEach( (item, index) => (santaStore.itemSearchData.push(item)));
     })
     .catch(function (error) {
       console.log(error);
@@ -45,7 +45,7 @@ var AddItemPage = observer(class AddItemPage extends React.Component {
   URL: '',
   category: 'elf'
 */
-  };
+  }
 
   render() {
     return (
@@ -57,8 +57,8 @@ var AddItemPage = observer(class AddItemPage extends React.Component {
         <ItemSearchBox />
       </div>
      </div>
-      );
+    );
   }
-})
+});
 
 export default AddItemPage;

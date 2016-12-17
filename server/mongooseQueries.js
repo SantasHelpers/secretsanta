@@ -55,7 +55,7 @@ var getAllUsers = function(req, res) {
 };
 // getGroupsByUser({body: {data: {username: 'Juli'}}}, {});
 var getGroupsByUser = function(req, res) {
-  console.log('GET GROUPS BY USER CALLED WITH' , JSON.parse(req.query.data).username);
+  console.log('GET GROUPS BY USER CALLED WITH', JSON.parse(req.query.data).username);
   var passedUsername = JSON.parse(req.query.data).username;
   console.log('passed', passedUsername);
   findUserByUsername(passedUsername, function(user) {
@@ -160,6 +160,11 @@ var setRandomTargets = function(req, res) {
     });
   });
 };
+//
+var claimItem = function(req, res) {
+  console.log(req);
+  res.send(200);
+};
 
 //Get target (name, username) for group
 
@@ -246,16 +251,3 @@ module.exports.getUser = getUser;
 //   console.log('successfully saved ', user.get('username'));
 // });
 //////////////////////////////////////////////////////////////////
-
-//USER
-//GET ALL USERS
-//add user
-//PARTY
-//getPartyByUser input: user , output parties
-//add a new group
-//ITEM
-//getWishListByUser : input user, output wishList
-//add to user's wishList : input user , item
-//change status to claimed :
-//TARGET INFO
-// get target by user and group
