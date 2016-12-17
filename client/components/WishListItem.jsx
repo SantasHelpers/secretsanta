@@ -13,6 +13,8 @@ var WishListItem = observer(class WishListItem extends React.Component {
   }
 
   handleClick() {
+
+    // REDIRECT TO this.props.item.URL
     console.log('this will redirect to the item page on amazon');
   }
 

@@ -34,6 +34,9 @@ ReactDOM.render(
   <Router history={hashHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={UserPage}></IndexRoute>
+
+        { /* this makes a recursive webpage.
+          <Route path="tohome" name="tohome" component={App}></Route>*/}
         <Route path="groups/:group" name="groups" component={GroupsPage}></Route>
         <Route path="addgroup" name="addgroup" component={AddGroupPage}></Route>
         <Route path="additem" name="additem" component={AddItemPage}></Route>
