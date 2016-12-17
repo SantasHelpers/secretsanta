@@ -66,6 +66,8 @@ var App = observer(class App extends React.Component {
     //   console.log(error);
     // });
   // }
+
+
   }
   componentWillMount() {
     axios.get('/api/groups', {
@@ -78,6 +80,19 @@ var App = observer(class App extends React.Component {
     .catch(function (error) {
       console.log(error);
     });
+
+    axios.put('/api/item',
+      {username: 'joos',
+        itemname: 'TOMOKO 87 Key Mechanical Keyboard, Water-Resistant Mechanical Gaming Keyboard with Blue Switch, Anti-ghosting Keys (Black)'
+      })
+ .then(function (response) {
+   console.log('item claim success');
+   console.log(response.data);
+
+ })
+  .catch(function (error) {
+    console.log(error);
+  });
 
   }
 
