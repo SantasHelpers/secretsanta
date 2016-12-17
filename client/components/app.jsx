@@ -15,7 +15,11 @@ var App = observer(class App extends React.Component {
     super (props);
     this.handleClick = this.handleClick.bind(this);
 
-    // GET Groups user is a member of
+  } 
+
+
+  componentWillMount(){
+
     // axios.get('/api/groups', {
     //     params: {data: {username: 'phil'}}
     // })

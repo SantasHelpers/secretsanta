@@ -42,6 +42,22 @@
   color: green;
 }
 
+ul {
+  list-style-type: none;
+}
+
+.link {
+  text-decoration: none;
+  background-color: green;
+  border-radius: 3px;
+  color: red;
+  font-size: 16px;
+  font-weight: 400;
+  font-stretch: 1.2;
+  width: 50px;
+  height: 20px; 
+}
+
 .WishListItem{
 
 }

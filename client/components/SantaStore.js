@@ -17,6 +17,7 @@ class SantaStore {
       allUsers: []
     });
 
+
   }
  // MOBX mutates state directly in the store
  // good resource  http://www.robinwieruch.de/mobx-react/
