@@ -1,14 +1,14 @@
 // GroupsPage.jsx
-import { ListGroup, ListGroupItem }  from 'react-bootstrap';
+import { ListGroup, ListGroupItem} from 'react-bootstrap';
 import React from 'react';
-import axios from 'axios'
+import axios from 'axios';
 import { observer } from 'mobx-react';
 import santaStore from './SantaStore';
 
 // not sure if need MOBX here,  will hold off
 // group page needs Group name, group
 
- var GroupPage = observer(class GroupsPage extends React.Component {
+var GroupPage = observer(class GroupsPage extends React.Component {
 
   constructor (props) {
     super (props);
@@ -19,15 +19,15 @@ import santaStore from './SantaStore';
     var selectedGroup = this.props.params.group;
 
     santaStore.groupData.forEach((group, index) =>{
-      if (group.name === selectedGroup){
+      if (group.name === selectedGroup) {
         console.log('found it : ', index);
         santaStore.currentGroup = index;
       }
-    })
+    });
 
     console.log('allusers prop is ', santaStore.allUsers);
 
-      axios.get('/api/users')
+    axios.get('/api/users')
       .then(function (response) {
         console.log('allusers', response.data.slice());
         santaStore.allUsers = response.data;
@@ -75,9 +75,9 @@ import santaStore from './SantaStore';
             }
           </ListGroup>
       </div>
-      );
+    );
   }
-})
+});
 
 
 export default GroupPage;

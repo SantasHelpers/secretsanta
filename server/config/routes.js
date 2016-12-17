@@ -8,7 +8,7 @@ var amazonsearch = function(req, res, next) {
   var data = JSON.parse(req.query.data);
   console.log('amazonsearchkeyword', data.keyword);
   amazon(data.keyword, function(result) {
-    res.status(200).send(result);
+     res.status(200).send(result);
   })
 };
 

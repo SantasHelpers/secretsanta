@@ -1,4 +1,4 @@
-import { ListGroup, ListGroupItem, Nav, NavItem, Grid, Row, Col, Thumbnail, Button, ButtonToolbar  }  from 'react-bootstrap';
+import { ListGroup, ListGroupItem, Nav, NavItem, Grid, Row, Col, Thumbnail, Button, ButtonToolbar} from 'react-bootstrap';
 import React from 'react';
 import { observer } from 'mobx-react';
 import santaStore from './SantaStore';
@@ -23,17 +23,17 @@ var GroupItem = observer(class GroupItem extends React.Component {
   render () {
     return (
       <div>
-        <Link to={"groups/"+ this.props.group.name}>
+        <Link to={'groups/' + this.props.group.name}>
           <ListGroupItem header={this.props.group.name} onClick={this.handleClick}>
            <img className="GroupAvatar" src={this.props.group.imageURL} />
           <div className="GroupDescription">{this.props.group.summary} </div>
           </ListGroupItem>
         </Link>
       </div>
-      );
+    );
   }
 
-})
+});
 
 
 

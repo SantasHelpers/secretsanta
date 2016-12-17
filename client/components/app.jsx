@@ -1,7 +1,7 @@
 // app.js
 // will hold state - the search results and if the list should be displayed
 
-import { Grid, Row, Col, Thumbnail, Button  }  from 'react-bootstrap';
+import { Grid, Row, Col, Thumbnail, Button} from 'react-bootstrap';
 import React from 'react';
 import GroupBox from './GroupBox.jsx';
 import { observer } from 'mobx-react';
@@ -63,12 +63,12 @@ var App = observer(class App extends React.Component {
     // });
   // }
   }
-  componentWillMount(){
+  componentWillMount() {
     axios.get('/api/groups', {
-        params: {data: {username: 'phil'}}
+      params: {data: {username: 'phil'}}
     })
     .then(function (response) {
-     console.log('groups for phil:', response.data);
+      console.log('groups for phil:', response.data);
       santaStore.groupData = response.data;
     })
     .catch(function (error) {
@@ -78,20 +78,20 @@ var App = observer(class App extends React.Component {
   }
 
   handleClick () {
-    console.log('nice you clicked the page')
+    console.log('nice you clicked the page');
   }
 
   render () {
-      return (
+    return (
         <div id='mainApp'>
           <GroupBox/>
           <div id='pendingAndWishList'>
             {this.props.children}
           </div>
         </div>
-      );
-    };
-})
+    );
+  }
+});
 
 
 export default App;

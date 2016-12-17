@@ -1,4 +1,4 @@
-import { ListGroup, ListGroupItem, Nav, NavItem, Grid, Row, Col, Thumbnail, Button, ButtonToolbar  }  from 'react-bootstrap';
+import { ListGroup, ListGroupItem, Nav, NavItem, Grid, Row, Col, Thumbnail, Button, ButtonToolbar} from 'react-bootstrap';
 import React from 'react';
 import PendingItem from './PendingItem.jsx';
 import santaStore from './SantaStore';
@@ -15,7 +15,7 @@ class PendingBox extends React.Component {
 
   render () {
 
-  var pendingList = santaStore.pendingList;
+    var pendingList = santaStore.pendingList;
 
     return (
       <div id='PendingBox'>
@@ -27,7 +27,7 @@ class PendingBox extends React.Component {
           }
         </ListGroup>
       </div>
-      );
+    );
   }
 }
 

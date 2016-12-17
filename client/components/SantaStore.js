@@ -12,10 +12,10 @@ class SantaStore {
       groupData: [],
       pendingList: [],
       currentUser: 'phil',
-      currentGroup: 0 ,
+      currentGroup: 0,
       itemSearchData: [],
       allUsers: []
-    })
+    });
 
   }
  // MOBX mutates state directly in the store

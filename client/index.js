@@ -7,16 +7,31 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 
 // import route level components here
-import App from './components/App.jsx'
-import UserPage from './components/UserPage.jsx'
-import GroupsPage from './components/GroupsPage.jsx'
-import AddGroupPage from './components/AddGroupPage.jsx'
-import AddItemPage from './components/AddItemPage.jsx'
-import AddUserPage from './components/AddUserPage.jsx'
+import App from './components/App.jsx';
+import UserPage from './components/UserPage.jsx';
+import GroupsPage from './components/GroupsPage.jsx';
+import AddGroupPage from './components/AddGroupPage.jsx';
+import AddItemPage from './components/AddItemPage.jsx';
+import AddUserPage from './components/AddUserPage.jsx';
 
 // axios.get('/api/groups', {
 //   params:{
 //      data: {username:store.currentUser}
+//     }
+//   })
+//  .then(function (response) {
+//    console.log('groupdata done');
+//    santaStore.groupData = response.data;
+//    console.log('updatedGroupData', store.groupData);
+//  })
+//   .catch(function (error) {
+//    console.log('error on getting groupdata');
+//    console.log(error);
+// });
+// axios.put('/api/groups', {
+//   params:{
+//      data: {username:'joos',
+//         }
 //     }
 //   })
 //  .then(function (response) {
@@ -43,4 +58,4 @@ ReactDOM.render(
         <Route path="adduser" name="adduser" component={AddUserPage}></Route>
     </Route>
   </Router>
-  ,document.getElementById('app'));
+  , document.getElementById('app'));

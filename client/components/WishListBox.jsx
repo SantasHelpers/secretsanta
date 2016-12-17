@@ -1,4 +1,4 @@
-import { ListGroup, ListGroupItem, Nav, NavItem, Grid, Row, Col, Thumbnail, Button, ButtonToolbar  }  from 'react-bootstrap';
+import { ListGroup, ListGroupItem, Nav, NavItem, Grid, Row, Col, Thumbnail, Button, ButtonToolbar} from 'react-bootstrap';
 import React from 'react';
 import WishListItem from './WishListItem.jsx';
 import { observer } from 'mobx-react';
@@ -10,8 +10,8 @@ var WishListBox = observer(class WishListBox extends React.Component {
     super(props);
     this.state = {
     };
-    this.handleClick = this.handleClick.bind(this)
-    this.addItem = this.addItem.bind(this)
+    this.handleClick = this.handleClick.bind(this);
+    this.addItem = this.addItem.bind(this);
   }
 
   handleClick () {
@@ -22,22 +22,20 @@ var WishListBox = observer(class WishListBox extends React.Component {
     console.log('adding item functionality not yet built');
   }
 
-  componentWillMount(){
+  componentWillMount() {
     console.log('wishlistboxcomponentwillmount');
-  axios.get('/api/item', {
+    axios.get('/api/item', {
       params: {data: {username: 'phil'}}
-  })
+    })
   .then(function (response) {
-   console.log('items for phil:', response.data);
+    console.log('items for phil:', response.data);
     santaStore.wishListData = response.data;
     console.log(response.data);
   })
   .catch(function (error) {
     console.log(error);
   });
-
-
-}
+  }
 
   render () {
     return (
@@ -53,9 +51,9 @@ var WishListBox = observer(class WishListBox extends React.Component {
           }
         </ListGroup>
       </div>
-      );
+    );
   }
-})
+});
 
 export default WishListBox;
 

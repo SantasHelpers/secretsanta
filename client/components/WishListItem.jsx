@@ -1,4 +1,4 @@
-import { ListGroupItem, Nav, NavItem, Grid, Row, Col, Thumbnail, Button, ButtonToolbar  }  from 'react-bootstrap';
+import { ListGroupItem, Nav, NavItem, Grid, Row, Col, Thumbnail, Button, ButtonToolbar} from 'react-bootstrap';
 import React from 'react';
 import { observer } from 'mobx-react';
 import santaStore from './SantaStore';
@@ -29,8 +29,8 @@ var WishListItem = observer(class WishListItem extends React.Component {
             {this.props.item.price}
           </div>
         </ListGroupItem>
-      );
+    );
   }
-})
+});
 
 export default WishListItem;

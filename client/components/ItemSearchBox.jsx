@@ -1,8 +1,8 @@
-import { ListGroup, ListGroupItem, Nav, NavItem, Grid, Row, Col, Thumbnail, Button, ButtonToolbar  }  from 'react-bootstrap';
+import { ListGroup, ListGroupItem, Nav, NavItem, Grid, Row, Col, Thumbnail, Button, ButtonToolbar} from 'react-bootstrap';
 import React from 'react';
 import ItemSearchResult from './ItemSearchResult.jsx';
 import { observer } from 'mobx-react';
-import santaStore from './SantaStore'
+import santaStore from './SantaStore';
 
 var ItemSearchBox = observer(class ItemSearchBox extends React.Component {
 
@@ -34,8 +34,8 @@ var ItemSearchBox = observer(class ItemSearchBox extends React.Component {
             }
           </ListGroup>
         </div>
-      );
+    );
   }
-})
+});
 
 export default ItemSearchBox;
