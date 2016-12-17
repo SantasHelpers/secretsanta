@@ -2,7 +2,8 @@ import { ListGroup, ListGroupItem, Nav, NavItem, Grid, Row, Col, Thumbnail, Butt
 import React from 'react';
 import WishListItem from './WishListItem.jsx';
 import { observer } from 'mobx-react';
-import santaStore from './SantaStore'
+import santaStore from './SantaStore';
+import axios from 'axios';
 
 var WishListBox = observer(class WishListBox extends React.Component {
   constructor(props) {
@@ -20,6 +21,23 @@ var WishListBox = observer(class WishListBox extends React.Component {
   addItem() {
     console.log('adding item functionality not yet built');
   }
+
+  componentWillMount(){
+    console.log('wishlistboxcomponentwillmount');
+  axios.get('/api/item', {
+      params: {data: {username: 'phil'}}
+  })
+  .then(function (response) {
+   console.log('items for phil:', response.data);
+    santaStore.wishListData = response.data;
+    console.log(response.data);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
+
+}
 
   render () {
     return (

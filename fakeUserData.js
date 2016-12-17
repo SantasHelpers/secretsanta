@@ -1,7 +1,7 @@
 var fakeUserData = [{
   username: 'phil',
   name: 'Phil',
-  groups: ['HR50'],
+  groups: ['HR50', 'Family'],
   items: [{
     name: 'VonShef Oval Slide Out Bamboo Cheese Board and 4 Piece Knife Set',
     price: 44.99,
@@ -180,6 +180,106 @@ var fakeUserData = [{
     URL: 'https://www.amazon.com/TOMOKO-Mechanical-Keyboard-Water-Resistant-Anti-ghosting/dp/B01DBJTZU2%3FSubscriptionId%3DAKIAIPLG2QYEQ7BELB7A%26tag%3Djslee-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB01DBJTZU2',
     category: 'Santa'
   }]
-}];
+},
+{
+  username: 'jason',
+  name: 'Jason',
+  groups: ['HR50'],
+  items: [{
+    name: 'localmode Men\'s Double Zipper Hooded Jacket Turtleneck Fleece Hoodie Coat Grey M',
+    price: 49.99,
+    imageURL: 'http://ecx.images-amazon.com/images/I/41zZ1IHGN8L._SL160_.jpg',
+    URL: 'https://www.amazon.com/localmode-Double-Zipper-Hooded-Turtleneck/dp/B01ERDHK5S%3Fpsc%3D1%26SubscriptionId%3DAKIAIPLG2QYEQ7BELB7A%26tag%3Djslee-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB01ERDHK5S',
+    category: 'Santa'
+  }, {
+    name: 'Five Flags Windproof Torch Lighter 5,10,15,20,25,50,100 Pieces! (5)',
+    price: 5.01,
+    imageURL: 'http://ecx.images-amazon.com/images/I/416etmVhJ9L._SL160_.jpg',
+    URL: 'https://www.amazon.com/Flags-Windproof-Torch-Lighter-Pieces/dp/B00IN7CF8M%3Fpsc%3D1%26SubscriptionId%3DAKIAIPLG2QYEQ7BELB7A%26tag%3Djslee-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00IN7CF8M',
+    category: 'Elf'
+  }, {
+    name: 'ASICS Men\'s GT 1000 4 Running Shoe, Black/Onyx/Black, 14 M US',
+    price: 100,
+    imageURL: 'http://ecx.images-amazon.com/images/I/41qqlcHoVTL._SL160_.jpg',
+    URL: 'https://www.amazon.com/ASICS-Mens-1000-Running-Black/dp/B00OU970V4%3Fpsc%3D1%26SubscriptionId%3DAKIAIPLG2QYEQ7BELB7A%26tag%3Djslee-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00OU970V4',
+    category: 'Santa'
+  }, {
+    name: 'Pilot Metropolitan Collection Fountain Pen, Black Barrel, Classic Design, Medium Nib, Black Ink (91107)',
+    price: 12.11,
+    imageURL: 'http://ecx.images-amazon.com/images/I/312UIt5PpkL._SL160_.jpg',
+    URL: 'https://www.amazon.com/Pilot-Metropolitan-Collection-Fountain-91107/dp/B009X9Z2FW%3Fpsc%3D1%26SubscriptionId%3DAKIAIPLG2QYEQ7BELB7A%26tag%3Djslee-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB009X9Z2FW',
+    category: 'Raindeer'
+  }, {
+    name: 'Mackie CR Series CR3 - 3" Creative Reference Multimedia Monitors (Pair)',
+    price: 99.99,
+    imageURL: 'http://ecx.images-amazon.com/images/I/41lIje7ibdL._SL160_.jpg',
+    URL: 'https://www.amazon.com/Mackie-CR-CR3-Reference-Multimedia/dp/B00KVEIY4E%3Fpsc%3D1%26SubscriptionId%3DAKIAIPLG2QYEQ7BELB7A%26tag%3Djslee-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KVEIY4E',
+    category: 'Santa'
+  }, {
+    name: 'Edifier R1280T Powered Bookshelf Speakers - 2.0 Active Near Field Monitors - Studio Monitor Speaker - Wooden Enclosure - 42 Watts RMS',
+    price: 99.99,
+    imageURL: 'http://ecx.images-amazon.com/images/I/41rasx6mYrL._SL160_.jpg',
+    URL: 'https://www.amazon.com/Edifier-R1280T-Powered-Bookshelf-Speakers/dp/B016P9HJIA%3FSubscriptionId%3DAKIAIPLG2QYEQ7BELB7A%26tag%3Djslee-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB016P9HJIA',
+    category: 'Santa'
+  }, {
+    name: 'TOMOKO 87 Key Mechanical Keyboard, Water-Resistant Mechanical Gaming Keyboard with Blue Switch, Anti-ghosting Keys (Black)',
+    price: 59.99,
+    imageURL: 'http://ecx.images-amazon.com/images/I/51dusQBLwlL._SL160_.jpg',
+    URL: 'https://www.amazon.com/TOMOKO-Mechanical-Keyboard-Water-Resistant-Anti-ghosting/dp/B01DBJTZU2%3FSubscriptionId%3DAKIAIPLG2QYEQ7BELB7A%26tag%3Djslee-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB01DBJTZU2',
+    category: 'Santa'
+  }]
+},
+{
+  username: 'nogroup',
+  name: 'NoGroup',
+  groups: [],
+  items: [{
+    name: 'localmode Men\'s Double Zipper Hooded Jacket Turtleneck Fleece Hoodie Coat Grey M',
+    price: 49.99,
+    imageURL: 'http://ecx.images-amazon.com/images/I/41zZ1IHGN8L._SL160_.jpg',
+    URL: 'https://www.amazon.com/localmode-Double-Zipper-Hooded-Turtleneck/dp/B01ERDHK5S%3Fpsc%3D1%26SubscriptionId%3DAKIAIPLG2QYEQ7BELB7A%26tag%3Djslee-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB01ERDHK5S',
+    category: 'Santa'
+  }, {
+    name: 'Five Flags Windproof Torch Lighter 5,10,15,20,25,50,100 Pieces! (5)',
+    price: 5.01,
+    imageURL: 'http://ecx.images-amazon.com/images/I/416etmVhJ9L._SL160_.jpg',
+    URL: 'https://www.amazon.com/Flags-Windproof-Torch-Lighter-Pieces/dp/B00IN7CF8M%3Fpsc%3D1%26SubscriptionId%3DAKIAIPLG2QYEQ7BELB7A%26tag%3Djslee-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00IN7CF8M',
+    category: 'Elf'
+  }, {
+    name: 'ASICS Men\'s GT 1000 4 Running Shoe, Black/Onyx/Black, 14 M US',
+    price: 100,
+    imageURL: 'http://ecx.images-amazon.com/images/I/41qqlcHoVTL._SL160_.jpg',
+    URL: 'https://www.amazon.com/ASICS-Mens-1000-Running-Black/dp/B00OU970V4%3Fpsc%3D1%26SubscriptionId%3DAKIAIPLG2QYEQ7BELB7A%26tag%3Djslee-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00OU970V4',
+    category: 'Santa'
+  }, {
+    name: 'Pilot Metropolitan Collection Fountain Pen, Black Barrel, Classic Design, Medium Nib, Black Ink (91107)',
+    price: 12.11,
+    imageURL: 'http://ecx.images-amazon.com/images/I/312UIt5PpkL._SL160_.jpg',
+    URL: 'https://www.amazon.com/Pilot-Metropolitan-Collection-Fountain-91107/dp/B009X9Z2FW%3Fpsc%3D1%26SubscriptionId%3DAKIAIPLG2QYEQ7BELB7A%26tag%3Djslee-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB009X9Z2FW',
+    category: 'Raindeer'
+  }, {
+    name: 'Mackie CR Series CR3 - 3" Creative Reference Multimedia Monitors (Pair)',
+    price: 99.99,
+    imageURL: 'http://ecx.images-amazon.com/images/I/41lIje7ibdL._SL160_.jpg',
+    URL: 'https://www.amazon.com/Mackie-CR-CR3-Reference-Multimedia/dp/B00KVEIY4E%3Fpsc%3D1%26SubscriptionId%3DAKIAIPLG2QYEQ7BELB7A%26tag%3Djslee-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KVEIY4E',
+    category: 'Santa'
+  }, {
+    name: 'Edifier R1280T Powered Bookshelf Speakers - 2.0 Active Near Field Monitors - Studio Monitor Speaker - Wooden Enclosure - 42 Watts RMS',
+    price: 99.99,
+    imageURL: 'http://ecx.images-amazon.com/images/I/41rasx6mYrL._SL160_.jpg',
+    URL: 'https://www.amazon.com/Edifier-R1280T-Powered-Bookshelf-Speakers/dp/B016P9HJIA%3FSubscriptionId%3DAKIAIPLG2QYEQ7BELB7A%26tag%3Djslee-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB016P9HJIA',
+    category: 'Santa'
+  }, {
+    name: 'TOMOKO 87 Key Mechanical Keyboard, Water-Resistant Mechanical Gaming Keyboard with Blue Switch, Anti-ghosting Keys (Black)',
+    price: 59.99,
+    imageURL: 'http://ecx.images-amazon.com/images/I/51dusQBLwlL._SL160_.jpg',
+    URL: 'https://www.amazon.com/TOMOKO-Mechanical-Keyboard-Water-Resistant-Anti-ghosting/dp/B01DBJTZU2%3FSubscriptionId%3DAKIAIPLG2QYEQ7BELB7A%26tag%3Djslee-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB01DBJTZU2',
+    category: 'Santa'
+  }]
+}
+
+
+
+];
 
 module.exports = fakeUserData;

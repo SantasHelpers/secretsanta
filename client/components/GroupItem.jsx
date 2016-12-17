@@ -25,7 +25,7 @@ var GroupItem = observer(class GroupItem extends React.Component {
       <div>
         <Link to={"groups/"+ this.props.group.name}>
           <ListGroupItem header={this.props.group.name} onClick={this.handleClick}>
-          <img className="GroupAvatar" src={this.props.group.imageUrl} />
+           <img className="GroupAvatar" src={this.props.group.imageURL} />
           <div className="GroupDescription">{this.props.group.summary} </div>
           </ListGroupItem>
         </Link>

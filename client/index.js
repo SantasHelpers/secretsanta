@@ -1,7 +1,7 @@
 // TODO: Render the `App` component to the DOM
 import React from 'react';
 import ReactDOM from 'react-dom';
-import store from './components/SantaStore.js';
+import santaStore from './components/SantaStore.js';
 import axios from 'axios';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
@@ -16,16 +16,18 @@ import AddUserPage from './components/AddUserPage.jsx'
 
 // axios.get('/api/groups', {
 //   params:{
-//     data:{username:'phil'}
-//        }
-//       }
-//     )
-//     .then(function(response) {
-//       console.log(response);
-//     })
-//     .catch(function(error) {
-//       console.log(error);
-//     });
+//      data: {username:store.currentUser}
+//     }
+//   })
+//  .then(function (response) {
+//    console.log('groupdata done');
+//    santaStore.groupData = response.data;
+//    console.log('updatedGroupData', store.groupData);
+//  })
+//   .catch(function (error) {
+//    console.log('error on getting groupdata');
+//    console.log(error);
+// });
 
 
 ReactDOM.render(
