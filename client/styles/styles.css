@@ -66,6 +66,11 @@ ul {
 
 }
 
+.img-preview {
+  height: 15%;
+  width: 15%;
+}
+
 .GroupAvatar {
   height: 100%;
   width: 100%;

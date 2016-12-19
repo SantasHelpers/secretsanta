@@ -14,7 +14,8 @@ class SantaStore {
       currentUser: 'phil',
       currentGroup: 0,
       itemSearchData: [],
-      allUsers: []
+      allUsers: [],
+      uploadImg: ''
     });
 
 
