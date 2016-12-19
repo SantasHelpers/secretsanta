@@ -20,7 +20,6 @@ var GroupPage = observer(class GroupsPage extends React.Component {
 
     santaStore.groupData.forEach((group, index) =>{
       if (group.name === selectedGroup) {
-        console.log('found it : ', index);
         santaStore.currentGroup = index;
       }
     });
