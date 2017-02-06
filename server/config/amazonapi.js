@@ -1,6 +1,12 @@
 var aws = require('aws-lib');
 var keys = require('./config');
 var prodAdv = aws.createProdAdvClient(keys.keyId, keys.secretKey, keys.aId);
+var client = require('../redis.js');
+// console.log(client);
+client.set('string key', 'string val');
+client.get('string key', function(err, val) {
+  console.log('log', val);
+});
 
 
 var returnFormatted = function(array) {
@@ -22,24 +28,32 @@ var returnFormatted = function(array) {
         } else {
           item.category = 'Santa';
         }
-        console.log(item);
+        // console.log(item);
         results.push(item);
       }
-    })
+    });
   }
   return results;
 };
 
 
-module.exports = function(keyword, cb) {
-  // console.log(keyword);
-  prodAdv.call("ItemSearch", { SearchIndex: 'All', Keywords: keyword, ResponseGroup: 'Medium' }, function(err, result) {
-    if(err){
-      console.log(err);
-    }
-    var returnedArray = result.Items.Item;
-    // console.log('returned',returnedArray);
 
-    cb(returnFormatted(returnedArray));
+module.exports = function(keyword, cb) {
+  client.get(keyword, function(err, val) {
+    if (val) {
+      console.log('found', keyword);
+      cb(JSON.parse(val));
+    } else {
+      console.log('notFound');
+      prodAdv.call('ItemSearch', { SearchIndex: 'All', Keywords: keyword, ResponseGroup: 'Medium' }, function(err, result) {
+        if (err) {
+          console.log(err);
+        }
+        var returnedArray = result.Items.Item;
+        var formatted = returnFormatted(returnedArray);
+        cb(formatted);
+        client.set(keyword, JSON.stringify(formatted));
+      });
+    }
   });
 };

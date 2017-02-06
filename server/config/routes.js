@@ -1,4 +1,5 @@
 var app = require('../server.js');
+console.log('routeapp', app);
 var amazon = require('./amazonapi');
 var router = require('express').Router();
 var controller = require('../mongooseQueries.js');
@@ -8,7 +9,7 @@ var amazonsearch = function(req, res, next) {
   var data = JSON.parse(req.query.data);
   console.log('amazonsearchkeyword', data.keyword);
   amazon(data.keyword, function(result) {
-    res.status(200).send(result);
+    res.json(result);
   });
 };
 
