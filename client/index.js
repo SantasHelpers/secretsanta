@@ -28,21 +28,6 @@ import AddUserPage from './components/AddUserPage.jsx';
 //    console.log('error on getting groupdata');
 //    console.log(error);
 // });
-// axios.put('/api/groups', {
-//   params:{
-//      data: {username:'joos',
-//         }
-//     }
-//   })
-//  .then(function (response) {
-//    console.log('groupdata done');
-//    santaStore.groupData = response.data;
-//    console.log('updatedGroupData', store.groupData);
-//  })
-//   .catch(function (error) {
-//    console.log('error on getting groupdata');
-//    console.log(error);
-// });
 
 
 ReactDOM.render(

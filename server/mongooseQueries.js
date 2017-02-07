@@ -36,7 +36,7 @@ var getWishlistByUser = function(req, res) {
 var getGroupMemberList = function(req, res) {
   var passedGroupName = req.body.data.groupname;
   findGroupByName(passedGroupName, function(group) {
-    console.log('Group members for ' + passedGroupName + ': ' + group.get('users'));
+    // console.log('Group members for ' + passedGroupName + ': ' + group.get('users'));
     res.send(group.get('users'));
   });
 };
@@ -44,7 +44,7 @@ var getGroupMemberList = function(req, res) {
 var getAllUsers = function(req, res) {
   User.find({})
     .then(function(users) {
-      console.log('ALLUSERS', users);
+      // console.log('ALLUSERS', users);
       var results = [];
       for (var i = 0; i < users.length; i++) {
         results.push(users[i].name);
@@ -55,19 +55,19 @@ var getAllUsers = function(req, res) {
 };
 // getGroupsByUser({body: {data: {username: 'Juli'}}}, {});
 var getGroupsByUser = function(req, res) {
-  console.log('GET GROUPS BY USER CALLED WITH', JSON.parse(req.query.data).username);
+  // console.log('GET GROUPS BY USER CALLED WITH', JSON.parse(req.query.data).username);
   var passedUsername = JSON.parse(req.query.data).username;
-  console.log('passed', passedUsername);
+  // console.log('passed', passedUsername);
   findUserByUsername(passedUsername, function(user) {
-    console.log('user', user);
+    // console.log('user', user);
     Group.find({
       'name': { $in: user.get('groups') }
     }, function(err, data) {
       if (err) {
-        console.log('finderror !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+        // console.log('finderror !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
         console.log(err);
       } else {
-        console.log('data to send', data);
+        // console.log('data to send', data);
         res.send(data);
       }
     });
@@ -75,7 +75,7 @@ var getGroupsByUser = function(req, res) {
 };
 
 var addUser = function(req, res) {
-  console.log('body.data', req.body.data);
+  // console.log('body.data', req.body.data);
   req.body.data.items = [];
   User.create(req.body.data, function(err, success) {
     if (err) {
@@ -88,7 +88,7 @@ var addUser = function(req, res) {
 };
 
 var addGroup = function(req, res) {
-  console.log(req.body.data);
+  // console.log(req.body.data);
   Group.create(req.body.data.group, function(err, success) {
     if (err) {
       console.log(err);
@@ -162,7 +162,14 @@ var setRandomTargets = function(req, res) {
 };
 //
 var claimItem = function(req, res) {
-  console.log(req);
+  console.log('claimItem');
+  console.log(req.body);
+  var username = req.body.username;
+  var itemname = req.body.itemname;
+  User.findOne({ username: username }).then(function(err, user) {
+    // TODO: FINISH THIS
+  });
+  //send something that says 'claimed'
   res.send(200);
 };
 
@@ -176,6 +183,7 @@ module.exports.addItemToWishList = addItemToWishList;
 module.exports.getWishlistByUser = getWishlistByUser;
 module.exports.setRandomTargets = setRandomTargets;
 module.exports.getUser = getUser;
+module.exports.claimItem = claimItem;
 
 //////TEST QUERIES////// Use these as examples
 // findUserByUsername('Johnson');
